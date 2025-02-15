@@ -1,0 +1,268 @@
+/* Allgemeine Stile */
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Header / Navigation */
+header {
+    background-color: blue;
+    padding: 5px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 50px;
+}
+
+/* Logo */
+.logo-container img {
+    width: 160px;
+    height: auto;
+    margin-left: 10px;
+}
+
+/* Navigation */
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+nav ul li {
+    margin: 0 10px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+/* Hero-Bereich */
+.hero {
+    padding: 15px;
+    background-color: #f4f4f4;
+    width: 70%;
+    margin: 15px auto;
+    border-radius: 10px;
+    font-size: 15px;
+    text-align: center;
+}
+
+/* Hero-Titel */
+.hero h1 {
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.hero p {
+    font-size: 14px;
+    margin-bottom: 8px;
+}
+
+/* Adressprüfung */
+.address-check {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    margin-top: 8px;
+}
+
+.address-check input {
+    padding: 6px;
+    width: 220px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.address-check button {
+    background-color: #0078D7;
+    color: white;
+    border: none;
+    padding: 6px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 13px;
+}
+
+.address-check button:hover {
+    background-color: #005bb5;
+}
+
+/* Produktübersicht */
+.products {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 10px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* Produktkarten */
+.product {
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 10px;
+    width: 250px;
+    background-color: white;
+    transition: transform 0.3s, box-shadow 0.3s;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Kompaktere Produkttexte */
+.product h3 {
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.product p {
+    font-size: 13px;
+    margin: 3px 0;
+    text-align: center;
+}
+
+/* Preisbereich */
+.price {
+    font-size: 14px;
+    font-weight: bold;
+    margin: 5px 0;
+}
+
+/* "Abo wählen"-Button */
+.subscribe-btn {
+    background-color: #0078D7;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    font-size: 12px;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    display: block;
+    margin: 10px auto;
+    width: 90%;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.subscribe-btn:hover {
+    background-color: #005bb5;
+    transform: scale(1.02);
+}
+
+.subscribe-btn:active {
+    background-color: #004a94;
+    transform: scale(0.98);
+}
+
+/* FAQ Bereich */
+.faq-section {
+    width: 70%;
+    margin: 10px auto;
+    text-align: center;
+}
+
+.faq-section h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+/* FAQ Container */
+.faq-container {
+    width: 100%;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* Einzelne FAQ-Fragen */
+.faq-item {
+    border-bottom: 1px solid #ddd;
+    padding: 8px 0;
+    text-align: left;
+}
+
+.faq-question {
+    width: 100%;
+    padding: 8px;
+    text-align: left;
+    font-size: 14px;
+    border: none;
+    background: none;
+    cursor: pointer;
+    outline: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: bold;
+}
+
+/* Antwort sichtbar machen */
+.faq-answer {
+    display: none;
+    padding: 5px;
+    font-size: 13px;
+}
+
+.faq-item.active .faq-answer {
+    display: block;
+}
+
+/* Plus Symbol für FAQ */
+.faq-icon {
+    font-size: 16px;
+    font-weight: bold;
+    transition: transform 0.3s ease;
+}
+
+.faq-item.active .faq-icon {
+    transform: rotate(45deg);
+}
+
+/* Streaming-Bereich */
+.streaming-section {
+    text-align: center;
+    margin-top: 30px;
+    padding: 20px;
+}
+
+.streaming-section h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.streaming-logos {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.streaming-logos img {
+    height: 40px;
+    transition: transform 0.2s ease-in-out;
+}
+
+.streaming-logos img:hover {
+    transform: scale(1.1);
+}
+
+/* Footer */
+footer {
+    background-color: blue;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    margin-top: auto;
+    width: 100%;
+}
