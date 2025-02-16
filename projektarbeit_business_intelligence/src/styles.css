@@ -25,13 +25,6 @@ header {
   z-index: 1000;
 }
 
-/* Logo */
-.logo-container img {
-  width: 160px;
-  height: auto;
-  margin-left: 10px;
-}
-
 /* Navigation */
 nav ul {
   list-style: none;
@@ -52,6 +45,12 @@ nav ul li a:hover {
   text-decoration: underline;
 }
 
+/* Hauptbereich, um den Footer immer nach unten zu drücken */
+main {
+  flex-grow: 1;
+  padding-bottom: 50px; /* Platz für den Footer */
+}
+
 /* Hero-Bereich */
 .hero {
   padding: 20px;
@@ -64,7 +63,7 @@ nav ul li a:hover {
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Adressprüfung im Swisscom-Style */
+/* Adressprüfung */
 .address-check {
   display: flex;
   justify-content: center;
@@ -130,16 +129,19 @@ nav ul li a:hover {
 
 /* Abo-Details Link */
 .details-link {
-  display: block;
-  margin-bottom: 12px;
+  display: inline-block;
   font-size: 14px;
   color: #0066da;
   text-decoration: none;
   font-weight: bold;
+  padding: 8px 12px;
+  border-radius: 5px;
+  transition: all 0.3s ease;
 }
 
 .details-link:hover {
   text-decoration: underline;
+  color: #0046be;
 }
 
 /* Abo wählen Button */
@@ -155,7 +157,9 @@ nav ul li a:hover {
   width: 100%;
   max-width: 200px;
   font-weight: bold;
-  margin-top: 5px;
+  text-align: center;
+  display: block;
+  margin-top: 10px;
 }
 
 .subscribe-btn:hover {
@@ -175,6 +179,7 @@ nav ul li a:hover {
   margin-bottom: 20px;
 }
 
+/* FAQ Container */
 .faq-container {
   background: white;
   border-radius: 10px;
@@ -182,10 +187,13 @@ nav ul li a:hover {
   padding: 20px;
 }
 
+/* Einzelne FAQ-Fragen */
 .faq-item {
   border-bottom: 1px solid #ddd;
+  padding: 10px 0;
 }
 
+/* FAQ-Fragen-Button */
 .faq-question {
   background: none;
   border: none;
@@ -198,6 +206,8 @@ nav ul li a:hover {
   justify-content: space-between;
   align-items: center;
   font-weight: bold;
+  color: #000000;
+  transition: background 0.3s ease;
 }
 
 .faq-question:hover {
@@ -205,6 +215,7 @@ nav ul li a:hover {
   border-radius: 5px;
 }
 
+/* FAQ-Antworten */
 .faq-answer {
   padding: 15px;
   background: #f9f9f9;
@@ -236,12 +247,12 @@ nav ul li a:hover {
   text-decoration: underline;
 }
 
-/* Footer */
+/* Footer bleibt immer unten */
 footer {
   background-color: blue;
   color: white;
   text-align: center;
   padding: 15px;
   width: 100%;
-  margin-top: 20px;
+  margin-top: auto; /* Automatische Platzierung unten */
 }

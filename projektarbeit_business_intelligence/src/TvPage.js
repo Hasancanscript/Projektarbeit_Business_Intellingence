@@ -7,11 +7,10 @@ function TvPage() {
         <nav>
           <ul>
             <li><a href="/">Home</a></li>
-            <li><a href="/produkte">Internet</a></li>
+            <li><a href="/internet">Internet</a></li> {/* Fix: War vorher /produkte */}
             <li><a href="/tv">TV</a></li>
-            <li><button className="link-button">Mobil</button></li>
-            <li><button className="link-button">Support</button></li>
-            <li><button className="link-button">Anmelden</button></li>
+            <li><a href="#">Support</a></li>
+            <li><a href="#">Anmelden</a></li>
           </ul>
         </nav>
       </header>

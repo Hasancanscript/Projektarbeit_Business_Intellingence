@@ -15,7 +15,6 @@ function LandingPage() {
             <li><a href="/">Home</a></li>
             <li><a href="/internet">Internet</a></li>
             <li><a href="/tv">TV</a></li>
-            <li><a href="#">Mobil</a></li>
             <li><a href="#">Support</a></li>
             <li><a href="#">Anmelden</a></li>
           </ul>
