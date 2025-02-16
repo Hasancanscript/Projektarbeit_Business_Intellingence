@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import React, { useState } from "react";
 
 function LandingPage() {
@@ -8,11 +7,6 @@ function LandingPage() {
     setAddress(e.target.value);
   };
 
-=======
-import React from "react";
-
-function LandingPage() {
->>>>>>> 1da34192b32bcc6a33fdbe791750343aa8f52296
   return (
     <div>
       <header>
@@ -33,7 +27,6 @@ function LandingPage() {
           <h1>TechCom Internet-Abos</h1>
           <p>Schnelles Glasfaser-Internet mit gratis Router & Surf-Schutz.</p>
           <p className="promo">🎁 <strong>Jetzt alle Abos nur 59.90 CHF/Monat.</strong></p>
-<<<<<<< HEAD
           <p className="sustainability">🌱 <strong>TechCom setzt auf nachhaltige Technologien für eine grünere Zukunft.</strong></p>
           <div className="address-check">
             <input 
@@ -44,11 +37,6 @@ function LandingPage() {
               onChange={handleAddressChange}
             />
             <button className="check-availability">Jetzt prüfen</button>
-=======
-          <div className="address-check">
-            <input type="text" id="address" placeholder="Adresse eingeben" />
-            <button className="check-availability">Prüfen</button>
->>>>>>> 1da34192b32bcc6a33fdbe791750343aa8f52296
           </div>
         </section>
 

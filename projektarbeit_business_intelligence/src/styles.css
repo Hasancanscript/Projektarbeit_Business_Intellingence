@@ -7,26 +7,16 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-<<<<<<< HEAD
   background-color: #f9f9f9;
-=======
->>>>>>> 1da34192b32bcc6a33fdbe791750343aa8f52296
 }
 
 /* Header / Navigation */
 header {
   background-color: blue;
-<<<<<<< HEAD
   padding: 10px 20px;
   display: flex;
   align-items: center;
-  justify-content: center;
-=======
-  padding: 5px 20px;
-  display: flex;
-  align-items: center;
   justify-content: space-between;
->>>>>>> 1da34192b32bcc6a33fdbe791750343aa8f52296
   height: 50px;
   width: 100%;
   position: fixed;
@@ -35,8 +25,6 @@ header {
   z-index: 1000;
 }
 
-<<<<<<< HEAD
-=======
 /* Logo */
 .logo-container img {
   width: 160px;
@@ -44,41 +32,28 @@ header {
   margin-left: 10px;
 }
 
->>>>>>> 1da34192b32bcc6a33fdbe791750343aa8f52296
 /* Navigation */
 nav ul {
   list-style: none;
   padding: 0;
   margin: 0;
   display: flex;
-<<<<<<< HEAD
   gap: 20px;
-=======
-}
-
-nav ul li {
-  margin: 0 10px;
->>>>>>> 1da34192b32bcc6a33fdbe791750343aa8f52296
 }
 
 nav ul li a {
   color: white;
   text-decoration: none;
-<<<<<<< HEAD
   font-size: 16px;
   font-weight: bold;
 }
 
 nav ul li a:hover {
   text-decoration: underline;
-=======
-  font-size: 14px;
->>>>>>> 1da34192b32bcc6a33fdbe791750343aa8f52296
 }
 
 /* Hero-Bereich */
 .hero {
-<<<<<<< HEAD
   padding: 20px;
   background-color: #f4f4f4;
   width: 80%;
@@ -118,15 +93,6 @@ nav ul li a:hover {
 
 .address-check button:hover {
   background-color: darkblue;
-=======
-  padding: 15px;
-  background-color: #f4f4f4;
-  width: 70%;
-  margin: 80px auto 15px; /* Abstand nach unten für festen Header */
-  border-radius: 10px;
-  font-size: 15px;
-  text-align: center;
->>>>>>> 1da34192b32bcc6a33fdbe791750343aa8f52296
 }
 
 /* Produktübersicht */
@@ -135,50 +101,37 @@ nav ul li a:hover {
   justify-content: center;
   flex-wrap: wrap;
   gap: 20px;
-<<<<<<< HEAD
   padding: 20px;
   max-width: 1000px;
-=======
-  padding: 10px;
-  max-width: 900px;
->>>>>>> 1da34192b32bcc6a33fdbe791750343aa8f52296
   margin: 0 auto;
 }
 
 /* Produktkarten */
 .product {
-<<<<<<< HEAD
   border: 1px solid #ddd;
   padding: 15px;
   border-radius: 10px;
   width: 280px;
-=======
-  border: 1px solid #ccc;
-  padding: 10px;
-  border-radius: 10px;
-  width: 250px;
->>>>>>> 1da34192b32bcc6a33fdbe791750343aa8f52296
   background-color: white;
   transition: transform 0.3s, box-shadow 0.3s;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-<<<<<<< HEAD
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* 🟢 Neuer Hover-Effekt für Produktkarten */
+/* Hover-Effekt für Produktkarten */
 .product:hover {
   transform: scale(1.05);
   box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.2);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* 📌 Abo-Details Link - jetzt besser lesbar */
+/* Abo-Details Link */
 .details-link {
   display: block;
-  margin-bottom: 12px; /* Mehr Abstand nach unten */
+  margin-bottom: 12px;
   font-size: 14px;
   color: #0066da;
   text-decoration: none;
@@ -189,7 +142,7 @@ nav ul li a:hover {
   text-decoration: underline;
 }
 
-/* 📌 Abo wählen Button - jetzt mit mehr Abstand */
+/* Abo wählen Button */
 .subscribe-btn {
   background-color: #0066da;
   color: white;
@@ -202,7 +155,7 @@ nav ul li a:hover {
   width: 100%;
   max-width: 200px;
   font-weight: bold;
-  margin-top: 5px; /* Mehr Abstand nach oben */
+  margin-top: 5px;
 }
 
 .subscribe-btn:hover {
@@ -252,12 +205,6 @@ nav ul li a:hover {
   border-radius: 5px;
 }
 
-.faq-icon {
-  font-size: 20px;
-  font-weight: bold;
-  color: #0066da;
-}
-
 .faq-answer {
   padding: 15px;
   background: #f9f9f9;
@@ -266,7 +213,7 @@ nav ul li a:hover {
   font-size: 14px;
 }
 
-/* 📌 Hinweisbereich für Kundenservice */
+/* Hinweisbereich für Kundenservice */
 .faq-footer {
   margin-top: 20px;
   background: #eef5ff;
@@ -287,8 +234,6 @@ nav ul li a:hover {
 
 .faq-footer a:hover {
   text-decoration: underline;
-=======
->>>>>>> 1da34192b32bcc6a33fdbe791750343aa8f52296
 }
 
 /* Footer */
@@ -296,15 +241,7 @@ footer {
   background-color: blue;
   color: white;
   text-align: center;
-<<<<<<< HEAD
   padding: 15px;
   width: 100%;
   margin-top: 20px;
-=======
-  padding: 10px;
-  width: 100%;
-  position: fixed;
-  bottom: 0;
-  left: 0;
->>>>>>> 1da34192b32bcc6a33fdbe791750343aa8f52296
 }
