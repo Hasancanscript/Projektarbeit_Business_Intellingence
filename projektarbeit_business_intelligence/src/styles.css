@@ -1,0 +1,246 @@
+/* Allgemeine Stile */
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #f9f9f9;
+}
+
+/* Header / Navigation */
+header {
+  background-color: blue;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50px;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+/* Navigation */
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 20px;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+nav ul li a:hover {
+  text-decoration: underline;
+}
+
+/* Hero-Bereich */
+.hero {
+  padding: 20px;
+  background-color: #f4f4f4;
+  width: 80%;
+  margin: 80px auto 20px;
+  border-radius: 10px;
+  font-size: 16px;
+  text-align: center;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Adressprüfung im Swisscom-Style */
+.address-check {
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
+}
+
+.address-check input {
+  width: 320px;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 5px 0 0 5px;
+  font-size: 14px;
+  outline: none;
+}
+
+.address-check button {
+  padding: 12px 18px;
+  border: none;
+  background-color: blue;
+  color: white;
+  font-size: 14px;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.address-check button:hover {
+  background-color: darkblue;
+}
+
+/* Produktübersicht */
+.products {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 20px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* Produktkarten */
+.product {
+  border: 1px solid #ddd;
+  padding: 15px;
+  border-radius: 10px;
+  width: 280px;
+  background-color: white;
+  transition: transform 0.3s, box-shadow 0.3s;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* 🟢 Neuer Hover-Effekt für Produktkarten */
+.product:hover {
+  transform: scale(1.05);
+  box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* 📌 Abo-Details Link - jetzt besser lesbar */
+.details-link {
+  display: block;
+  margin-bottom: 12px; /* Mehr Abstand nach unten */
+  font-size: 14px;
+  color: #0066da;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.details-link:hover {
+  text-decoration: underline;
+}
+
+/* 📌 Abo wählen Button - jetzt mit mehr Abstand */
+.subscribe-btn {
+  background-color: #0066da;
+  color: white;
+  border: none;
+  padding: 14px 18px;
+  font-size: 14px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: 100%;
+  max-width: 200px;
+  font-weight: bold;
+  margin-top: 5px; /* Mehr Abstand nach oben */
+}
+
+.subscribe-btn:hover {
+  background-color: #0050b3;
+}
+
+/* FAQ-Bereich */
+.faq {
+  margin: 40px auto;
+  max-width: 800px;
+  text-align: left;
+}
+
+.faq h2 {
+  text-align: center;
+  font-size: 22px;
+  margin-bottom: 20px;
+}
+
+.faq-container {
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+}
+
+.faq-item {
+  border-bottom: 1px solid #ddd;
+}
+
+.faq-question {
+  background: none;
+  border: none;
+  width: 100%;
+  text-align: left;
+  font-size: 16px;
+  padding: 15px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: bold;
+}
+
+.faq-question:hover {
+  background-color: #f4f4f4;
+  border-radius: 5px;
+}
+
+.faq-icon {
+  font-size: 20px;
+  font-weight: bold;
+  color: #0066da;
+}
+
+.faq-answer {
+  padding: 15px;
+  background: #f9f9f9;
+  border-radius: 5px;
+  margin: 10px;
+  font-size: 14px;
+}
+
+/* 📌 Hinweisbereich für Kundenservice */
+.faq-footer {
+  margin-top: 20px;
+  background: #eef5ff;
+  padding: 15px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+  color: #333;
+}
+
+.faq-footer a {
+  color: #0066da;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.faq-footer a:hover {
+  text-decoration: underline;
+}
+
+/* Footer */
+footer {
+  background-color: blue;
+  color: white;
+  text-align: center;
+  padding: 15px;
+  width: 100%;
+  margin-top: 20px;
+}
