@@ -1,6 +1,6 @@
 /* Allgemeine Stile */
 body {
-  font-family: Arial, sans-serif;
+  font-family: "Poppins", Arial, sans-serif;
   text-align: center;
   margin: 0;
   padding: 0;
@@ -13,16 +13,17 @@ body {
 /* Header / Navigation */
 header {
   background-color: blue;
-  padding: 10px 20px;
+  padding: 15px 20px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 50px;
+  height: 60px;
   width: 100%;
   position: fixed;
   top: 0;
   left: 0;
   z-index: 1000;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 /* Navigation */
@@ -31,7 +32,7 @@ nav ul {
   padding: 0;
   margin: 0;
   display: flex;
-  gap: 20px;
+  gap: 25px;
 }
 
 nav ul li a {
@@ -39,220 +40,386 @@ nav ul li a {
   text-decoration: none;
   font-size: 16px;
   font-weight: bold;
+  transition: color 0.3s ease;
 }
 
 nav ul li a:hover {
   text-decoration: underline;
+  color: #ffcc00;
 }
 
-/* Hauptbereich, um den Footer immer nach unten zu drücken */
+/* Hauptbereich */
 main {
   flex-grow: 1;
-  padding-bottom: 50px; /* Platz für den Footer */
+  padding-top: 80px;
+  padding-bottom: 60px;
 }
 
 /* Hero-Bereich */
 .hero {
-  padding: 20px;
-  background-color: #f4f4f4;
-  width: 80%;
-  margin: 80px auto 20px;
-  border-radius: 10px;
-  font-size: 16px;
-  text-align: center;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-}
-
-/* Adressprüfung */
-.address-check {
-  display: flex;
-  justify-content: center;
-  margin-top: 15px;
-}
-
-.address-check input {
-  width: 320px;
-  padding: 12px;
-  border: 1px solid #ccc;
-  border-radius: 5px 0 0 5px;
-  font-size: 14px;
-  outline: none;
-}
-
-.address-check button {
-  padding: 12px 18px;
-  border: none;
-  background-color: blue;
+  padding: 40px;
+  background: linear-gradient(to right, #004080, #0066da);
   color: white;
-  font-size: 14px;
-  border-radius: 0 5px 5px 0;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+  border-radius: 15px;
+  width: 80%;
+  margin: 50px auto;
+  box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.15);
 }
 
-.address-check button:hover {
-  background-color: darkblue;
-}
-
-/* Produktübersicht */
-.products {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 20px;
-  padding: 20px;
-  max-width: 1000px;
+/* 🔹 TV-Produkte */
+.tv-products {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 40px;
+  padding: 40px;
+  max-width: 1300px;
   margin: 0 auto;
 }
 
-/* Produktkarten */
-.product {
-  border: 1px solid #ddd;
-  padding: 15px;
-  border-radius: 10px;
-  width: 280px;
-  background-color: white;
-  transition: transform 0.3s, box-shadow 0.3s;
+/* TV-Karten */
+.tv-card {
+  background: white;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  text-align: left;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  min-width: 300px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  align-items: center;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  border-top: 5px solid #0066da;
+  position: relative;
+  overflow: hidden;
 }
 
-/* Hover-Effekt für Produktkarten */
-.product:hover {
+.tv-card:hover {
   transform: scale(1.05);
-  box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.2);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
 }
 
-/* Abo-Details Link */
-.details-link {
-  display: inline-block;
-  font-size: 14px;
-  color: #0066da;
-  text-decoration: none;
+/* 🔹 Internet-Produkte */
+.internet-products {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 40px;
+  padding: 40px;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+/* Internet-Karten */
+.internet-card {
+  background: white;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  text-align: left;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  min-width: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-top: 5px solid #0066da;
+  position: relative;
+  overflow: hidden;
+}
+
+.internet-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* 🔹 Home-Produkte */
+.home-products {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 40px;
+  padding: 40px;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+/* Home-Karten */
+.home-card {
+  background: white;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  text-align: left;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  min-width: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-top: 5px solid #0066da;
+  position: relative;
+  overflow: hidden;
+}
+
+.home-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* 🔹 Adressprüfung - modernes Design */
+.address-check {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: #ffffff;
+  padding: 12px 20px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  margin: 20px auto;
+}
+
+.address-check label {
   font-weight: bold;
-  padding: 8px 12px;
-  border-radius: 5px;
+  color: #004080;
+  font-size: 16px;
+}
+
+.address-check input {
+  flex: 1;
+  padding: 12px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  outline: none;
   transition: all 0.3s ease;
 }
 
-.details-link:hover {
-  text-decoration: underline;
-  color: #0046be;
+.address-check input:focus {
+  border-color: #0066da;
+  box-shadow: 0px 0px 5px rgba(0, 102, 218, 0.3);
+}
+
+.address-check button {
+  background-color: #0066da;
+  color: white;
+  padding: 12px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.address-check button:hover {
+  background-color: #004080;
+  transform: scale(1.05);
+}
+
+/* Preisgestaltung */
+.price {
+  font-size: 1.4em;
+  font-weight: bold;
+  color: #333;
+  margin-top: 15px;
+  text-align: center;
+}
+
+.price del {
+  color: gray;
+  font-size: 1em;
+  margin-right: 5px;
 }
 
 /* Abo wählen Button */
 .subscribe-btn {
   background-color: #0066da;
   color: white;
+  padding: 14px;
   border: none;
-  padding: 14px 18px;
-  font-size: 14px;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  width: 100%;
-  max-width: 200px;
+  font-size: 15px;
+  border-radius: 8px;
   font-weight: bold;
+  cursor: pointer;
   text-align: center;
-  display: block;
-  margin-top: 10px;
+  width: 100%;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .subscribe-btn:hover {
-  background-color: #0050b3;
+  background-color: #004080;
+  transform: scale(1.05);
+}
+
+/* Responsive Fix für kleine Bildschirme */
+@media (max-width: 768px) {
+  .tv-products, .internet-products, .home-products {
+    grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));
+  }
+
+  .address-check {
+    flex-direction: column;
+    gap: 5px;
+    padding: 15px;
+  }
+
+  .address-check input,
+  .address-check button {
+    width: 100%;
+  }
 }
 
 /* FAQ-Bereich */
 .faq {
-  margin: 40px auto;
+  margin: 50px auto;
+  width: 80%;
   max-width: 800px;
   text-align: left;
 }
 
 .faq h2 {
   text-align: center;
-  font-size: 22px;
-  margin-bottom: 20px;
+  font-size: 24px;
+  font-weight: bold;
+  color: #004080;
 }
 
-/* FAQ Container */
 .faq-container {
-  background: white;
-  border-radius: 10px;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
-/* Einzelne FAQ-Fragen */
 .faq-item {
-  border-bottom: 1px solid #ddd;
-  padding: 10px 0;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  border: 1px solid #ccc;
+  transition: all 0.3s ease;
 }
 
-/* FAQ-Fragen-Button */
+.faq-item:hover {
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
 .faq-question {
-  background: none;
-  border: none;
   width: 100%;
-  text-align: left;
+  border: none;
+  background: none;
   font-size: 16px;
-  padding: 15px;
+  font-weight: bold;
+  text-align: left;
   cursor: pointer;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-weight: bold;
-  color: #000000;
-  transition: background 0.3s ease;
+  padding: 10px;
+  color: #004080;
 }
 
-.faq-question:hover {
-  background-color: #f4f4f4;
-  border-radius: 5px;
-}
-
-/* FAQ-Antworten */
 .faq-answer {
-  padding: 15px;
-  background: #f9f9f9;
-  border-radius: 5px;
-  margin: 10px;
+  margin-top: 10px;
   font-size: 14px;
+  color: #555;
+  display: none;
 }
 
-/* Hinweisbereich für Kundenservice */
-.faq-footer {
-  margin-top: 20px;
-  background: #eef5ff;
-  padding: 15px;
-  border-radius: 10px;
+.faq-item.open .faq-answer {
+  display: block;
+}
+
+/* Hotline-Bereich */
+.hotline {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 14px;
+  gap: 10px;
+  background: #f9f9f9;
+  padding: 15px;
+  border-radius: 8px;
+  margin: 30px auto;
+  max-width: 600px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.hotline p {
+  font-size: 16px;
   color: #333;
 }
 
-.faq-footer a {
-  color: #0066da;
+.hotline a {
   font-weight: bold;
+  color: #0066da;
   text-decoration: none;
 }
 
-.faq-footer a:hover {
+.hotline a:hover {
   text-decoration: underline;
 }
 
-/* Footer bleibt immer unten */
-footer {
-  background-color: blue;
+/* Angebots-Banner */
+.offer-banner {
+  background: linear-gradient(to right, #0072ff, #9333ea);
   color: white;
+  padding: 30px;
   text-align: center;
-  padding: 15px;
-  width: 100%;
-  margin-top: auto; /* Automatische Platzierung unten */
+  border-radius: 12px;
+  margin: 40px auto;
+  max-width: 1100px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+.offer-banner h2 {
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+.offer-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.offer-box {
+  background: white;
+  color: black;
+  padding: 20px;
+  border-radius: 12px;
+  text-align: left;
+  width: 48%;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.offer-box img {
+  width: 80px;
+  margin-bottom: 10px;
+}
+
+.offer-box h3 {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.offer-box p {
+  font-size: 14px;
+}
+
+.offer-box a {
+  color: #0072ff;
+  text-decoration: none;
+  font-weight: bold;
+  display: inline-block;
+  margin-top: 10px;
+}
+
+.offer-box a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive Design für Angebots-Banner */
+@media (max-width: 768px) {
+  .offer-container {
+    flex-direction: column;
+  }
+  .offer-box {
+    width: 100%;
+  }
 }

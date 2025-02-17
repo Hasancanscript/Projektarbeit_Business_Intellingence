@@ -8,6 +8,44 @@ function InternetPage() {
     setOpenQuestion(openQuestion === index ? null : index);
   };
 
+  const internetProducts = [
+    {
+      title: "🏠 TechCom Connect S",
+      speed: "Bis zu 100 Mbit/s Download & Upload",
+      router: "Gratis WLAN-Router mit Wi-Fi 6",
+      security: "Integrierte Firewall & Jugendschutz",
+      extras: ["Kostenlose WLAN-Hotspots", "Sicherer Surf-Schutz"],
+      price: "39.90 CHF/Monat",
+      oldPrice: "64.90 CHF"
+    },
+    {
+      title: "🔥 TechCom Connect M",
+      speed: "Bis zu 1 Gbit/s Download & Upload",
+      router: "Gratis High-Speed WLAN-Router",
+      security: "Erweiterte Firewall & Virenschutz",
+      extras: ["Optimiert für Streaming & Gaming"],
+      price: "49.90 CHF/Monat",
+      oldPrice: "79.90 CHF"
+    },
+    {
+      title: "🚀 TechCom Connect L",
+      speed: "Bis zu 10 Gbit/s Download & Upload",
+      router: "Gratis Router mit Wi-Fi 7",
+      security: "Maximale Sicherheit + VPN inklusive",
+      extras: ["Ideal für E-Sports & 4K-Streaming"],
+      price: "59.90 CHF/Monat",
+      oldPrice: "89.90 CHF"
+    }
+  ];
+
+  const faqItems = [
+    { question: "Welche Internet-Abos bietet TechCom?", answer: "TechCom bietet verschiedene Internet-Abos mit Geschwindigkeiten von 100 Mbit/s bis 10 Gbit/s." },
+    { question: "Welche Internetgeschwindigkeit benötige ich?", answer: "Das hängt von Ihrem Bedarf ab. Normales Surfen: 100 Mbit/s, Streaming & Gaming: 1 Gbit/s oder mehr." },
+    { question: "Welche Vorteile bietet TechCom Internet?", answer: "Unsere Abos bieten ultraschnelles Internet, kostenloses WLAN, Sicherheitspakete und eine stabile Verbindung." },
+    { question: "Wie kann ich mein Internet-Abo zu TechCom wechseln?", answer: "Ein Wechsel ist einfach: Bestellen Sie Ihr neues Abo, und wir kümmern uns um den Rest." },
+    { question: "Gibt es kostenlose Zusatzleistungen?", answer: "Ja, Sie erhalten kostenlose WLAN-Hotspots, sicheres Surfen und einen gratis Router." }
+  ];
+
   return (
     <div>
       {/* Navigation */}
@@ -35,49 +73,49 @@ function InternetPage() {
           </div>
         </section>
 
+        {/* 📌 Angebots-Banner */}
+        <section className="offer-banner">
+          <h2>Entscheiden Sie sich für das Angebot Ihrer Wahl</h2>
+          <div className="offer-container">
+            <div className="offer-box">
+              <img src="https://via.placeholder.com/100" alt="PS5 Angebot" />
+              <p>Zum besten Internet und beliebtesten TV-Abo</p>
+              <h3>Nur bis 02.03. – PlayStation®5 Slim geschenkt</h3>
+              <a href="#">➝ Zum Angebot</a>
+            </div>
+            <div className="offer-box">
+              <img src="https://via.placeholder.com/100" alt="Internet + TV" />
+              <p>Bestes Internet und beliebtestes TV</p>
+              <h3>Alle Internet und TV-Abos 1 Jahr für 59.90/Mt.</h3>
+              <a href="#">➝ Zum Angebot</a>
+            </div>
+          </div>
+        </section>
+
         {/* Produktübersicht */}
-        <section className="products">
-          {[
-            { title: "🏠 TechCom Connect S", speed: "Bis zu 100 Mbit/s", router: "Wi-Fi 6", price: "39.90 CHF/Monat", oldPrice: "64.90 CHF" },
-            { title: "🔥 TechCom Connect M", speed: "Bis zu 1 Gbit/s", router: "High-Speed WLAN-Router", price: "49.90 CHF/Monat", oldPrice: "79.90 CHF" },
-            { title: "🚀 TechCom Connect L", speed: "Bis zu 10 Gbit/s", router: "Wi-Fi 7", price: "59.90 CHF/Monat", oldPrice: "89.90 CHF" }
-          ].map((product, index) => (
-            <div className="product" key={index}>
-              <h3>{product.title}</h3>
-              <p><strong>Internet:</strong> {product.speed}</p>
-              <p><strong>Router:</strong> {product.router}</p>
-              <p className="price"><del>{product.oldPrice}</del> <strong>{product.price}</strong></p>
-              <p className="montage"><del>Techniker-Montage: 249 CHF</del> ✅ Jetzt kostenlos!</p>
-              <a href="#" className="details-link">➝ Abo-Details</a>
+        <section className="internet-products">
+          {internetProducts.map((product, index) => (
+            <div className="internet-card" key={index}>
+              <h3 className="internet-title">{product.title}</h3>
+              <div className="internet-info">
+                <p><strong>Internet-Geschwindigkeit</strong></p>
+                <p>{product.speed}</p>
+
+                <p><strong>WLAN-Router</strong></p>
+                <p>{product.router}</p>
+
+                <p><strong>Sicherheit</strong></p>
+                <p>{product.security}</p>
+
+                <p><strong>Zusatzleistungen</strong></p>
+                <p>{product.extras.join(", ")}</p>
+              </div>
+              <p className="price">
+                <del>{product.oldPrice}</del> <strong>{product.price}</strong>
+              </p>
               <button className="subscribe-btn">Abo wählen</button>
             </div>
           ))}
-        </section>
-
-        {/* FAQ-Bereich */}
-        <section className="faq">
-          <h2>Häufige Fragen</h2>
-          <div className="faq-container">
-            {[
-              { question: "Welche Internet-Abos bietet TechCom?", answer: "TechCom bietet verschiedene Internet-Abos mit Geschwindigkeiten von 100 Mbit/s bis 10 Gbit/s." },
-              { question: "Welche Internetgeschwindigkeit benötige ich?", answer: "Das hängt von Ihrem Bedarf ab. Normales Surfen: 100 Mbit/s, Streaming & Gaming: 1 Gbit/s oder mehr." },
-              { question: "Wie lange dauert die Aktivierung?", answer: "Die Aktivierung dauert in der Regel 2–5 Werktage." },
-              { question: "Gibt es eine Mindestlaufzeit?", answer: "Ja, die Mindestlaufzeit beträgt 12 Monate." },
-              { question: "Kann ich mein Abo upgraden oder downgraden?", answer: "Ein Upgrade ist jederzeit möglich. Ein Downgrade nach 12 Monaten." }
-            ].map((item, index) => (
-              <div key={index} className="faq-item">
-                <button className="faq-question" onClick={() => toggleQuestion(index)}>
-                  {item.question}
-                  <span className="faq-icon">{openQuestion === index ? "−" : "+"}</span>
-                </button>
-                {openQuestion === index && (
-                  <div className="faq-answer">
-                    <p>{item.answer}</p>
-                  </div>
-                )}
-              </div>
-            ))}
-          </div>
         </section>
       </main>
 

@@ -1,13 +1,47 @@
 import React from "react";
+import "./styles.css"; // Aktualisierte Stile für das moderne Design
 
 function TvPage() {
+  const tvProducts = [
+    {
+      title: "📡 TechCom TV S",
+      channels: "200+ Sender inkl. HD",
+      replay: "7 Tage Replay",
+      recordings: "100h Aufnahmen",
+      devices: "2 zusätzliche mobile Geräte",
+      extras: ["Kostenlose Mediathek"],
+      price: "19.90 CHF/Monat",
+      oldPrice: "24.90 CHF"
+    },
+    {
+      title: "📺 TechCom TV M",
+      channels: "290+ Sender inkl. UHD",
+      replay: "7 Tage Replay mit Spulen",
+      recordings: "250h Aufnahmen",
+      devices: "3 zusätzliche mobile Geräte",
+      extras: ["Kostenlose Mediathek"],
+      price: "29.90 CHF/Monat",
+      oldPrice: "34.90 CHF"
+    },
+    {
+      title: "🎥 TechCom TV L",
+      channels: "330+ Sender inkl. UHD",
+      replay: "7 Tage Replay mit Spulen",
+      recordings: "2000h Aufnahmen",
+      devices: "5 zusätzliche mobile Geräte",
+      extras: ["Kostenlose Mediathek", "Netflix & Disney+ buchbar"],
+      price: "39.90 CHF/Monat",
+      oldPrice: "49.90 CHF"
+    }
+  ];
+
   return (
     <div>
       <header>
         <nav>
           <ul>
             <li><a href="/">Home</a></li>
-            <li><a href="/internet">Internet</a></li> {/* Fix: War vorher /produkte */}
+            <li><a href="/internet">Internet</a></li>
             <li><a href="/tv">TV</a></li>
             <li><a href="#">Support</a></li>
             <li><a href="#">Anmelden</a></li>
@@ -22,17 +56,29 @@ function TvPage() {
           <p>🆓 <strong>Jetzt 6 Monate Premium TV kostenlos testen!</strong></p>
         </section>
 
-        <section className="products">
-          {[ 
-            { title: "📡 TechCom TV S", channels: "200+ Sender inkl. HD", recordings: "100h", price: "19.90 CHF/Monat", oldPrice: "24.90 CHF" },
-            { title: "📺 TechCom TV M", channels: "290+ Sender inkl. UHD", recordings: "250h", price: "29.90 CHF/Monat", oldPrice: "34.90 CHF" },
-            { title: "📽️ TechCom TV L", channels: "330+ Sender inkl. UHD", recordings: "2000h", price: "39.90 CHF/Monat", oldPrice: "49.90 CHF" }
-          ].map((product, index) => (
-            <div className="product" key={index}>
-              <h3>{product.title}</h3>
-              <p><strong>Sender:</strong> {product.channels}</p>
-              <p><strong>Aufnahmen:</strong> {product.recordings}</p>
-              <p className="price"><del>{product.oldPrice}</del> <strong>{product.price}</strong></p>
+        <section className="tv-products">
+          {tvProducts.map((product, index) => (
+            <div className="tv-card" key={index}>
+              <h3 className="tv-title">{product.title}</h3>
+              <div className="tv-info">
+                <p><strong>Sender</strong></p>
+                <p>{product.channels}</p>
+                
+                <p><strong>Replay</strong></p>
+                <p>{product.replay}</p>
+
+                <p><strong>Aufnahmen</strong></p>
+                <p>{product.recordings}</p>
+
+                <p><strong>TV auf mehreren Geräten</strong></p>
+                <p>{product.devices}</p>
+
+                <p><strong>Zusatzinhalte</strong></p>
+                <p>{product.extras.join(", ")}</p>
+              </div>
+              <p className="price">
+                <del>{product.oldPrice}</del> <strong>{product.price}</strong>
+              </p>
               <button className="subscribe-btn">Abo wählen</button>
             </div>
           ))}

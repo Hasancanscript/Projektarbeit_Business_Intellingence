@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "./styles.css";
 
 function LandingPage() {
   const [address, setAddress] = useState("");
@@ -6,6 +7,36 @@ function LandingPage() {
   const handleAddressChange = (e) => {
     setAddress(e.target.value);
   };
+
+  const homeProducts = [
+    {
+      title: "🏠 TechCom Connect S",
+      speed: "Bis zu 100 Mbit/s Download & Upload",
+      router: "Gratis WLAN-Router mit Wi-Fi 6",
+      security: "Integrierte Firewall & Jugendschutz",
+      extras: ["Kostenlose WLAN-Hotspots", "Sicherer Surf-Schutz"],
+      price: "39.90 CHF/Monat",
+      oldPrice: "64.90 CHF"
+    },
+    {
+      title: "🔥 TechCom Connect M",
+      speed: "Bis zu 1 Gbit/s Download & Upload",
+      router: "Gratis High-Speed WLAN-Router",
+      security: "Erweiterte Firewall & Virenschutz",
+      extras: ["Optimiert für Streaming & Gaming"],
+      price: "49.90 CHF/Monat",
+      oldPrice: "79.90 CHF"
+    },
+    {
+      title: "🚀 TechCom Connect L",
+      speed: "Bis zu 10 Gbit/s Download & Upload",
+      router: "Gratis Router mit Wi-Fi 7",
+      security: "Maximale Sicherheit + VPN inklusive",
+      extras: ["Ideal für E-Sports & 4K-Streaming"],
+      price: "59.90 CHF/Monat",
+      oldPrice: "89.90 CHF"
+    }
+  ];
 
   return (
     <div>
@@ -45,19 +76,27 @@ function LandingPage() {
           <p><strong>Projektarbeit im Fach Business Intelligence</strong></p>
         </section>
 
-        <section className="products">
-          {[ 
-            { title: "🏠 TechCom Connect S", speed: "Bis zu 100 Mbit/s Download & Upload", router: "Gratis WLAN-Router mit Wi-Fi 6", price: "39.90 CHF/Monat", oldPrice: "64.90 CHF" },
-            { title: "🔥 TechCom Connect M", speed: "Bis zu 1 Gbit/s Download & Upload", router: "Gratis High-Speed WLAN-Router", price: "49.90 CHF/Monat", oldPrice: "79.90 CHF" },
-            { title: "🚀 TechCom Connect L", speed: "Bis zu 10 Gbit/s Download & Upload", router: "Gratis Router mit Wi-Fi 7", price: "59.90 CHF/Monat", oldPrice: "89.90 CHF" }
-          ].map((product, index) => (
-            <div className="product" key={index}>
-              <h3>{product.title}</h3>
-              <p><strong>Internet:</strong> {product.speed}</p>
-              <p><strong>Router:</strong> {product.router}</p>
-              <p className="price"><del>{product.oldPrice}</del> <strong>{product.price}</strong></p>
-              <p className="montage"><del>Techniker-Montage: 249 CHF</del> ✅ Jetzt kostenlos!</p>
-              <a href="#" className="details-link">➝ Abo-Details</a>
+        {/* Produktübersicht mit gleicher Struktur wie TV- & Internet-Seite */}
+        <section className="home-products">
+          {homeProducts.map((product, index) => (
+            <div className="home-card" key={index}>
+              <h3 className="home-title">{product.title}</h3>
+              <div className="home-info">
+                <p><strong>Internet-Geschwindigkeit</strong></p>
+                <p>{product.speed}</p>
+
+                <p><strong>WLAN-Router</strong></p>
+                <p>{product.router}</p>
+
+                <p><strong>Sicherheit</strong></p>
+                <p>{product.security}</p>
+
+                <p><strong>Zusatzleistungen</strong></p>
+                <p>{product.extras.join(", ")}</p>
+              </div>
+              <p className="price">
+                <del>{product.oldPrice}</del> <strong>{product.price}</strong>
+              </p>
               <button className="subscribe-btn">Abo wählen</button>
             </div>
           ))}
