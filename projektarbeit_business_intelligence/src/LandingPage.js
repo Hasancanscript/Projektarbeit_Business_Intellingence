@@ -45,11 +45,11 @@ function LandingPage() {
       <header>
         <nav>
           <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/internet">Internet</a></li>
-            <li><a href="/tv">TV</a></li>
-            <li><a href="/support">Support</a></li>
-            <li><a href="#">Anmelden</a></li>
+            <li><Link to="/">Home</Link></li>
+            <li><Link to="/internet">Internet</Link></li>
+            <li><Link to="/tv">TV</Link></li>
+            <li><Link to="/support">Support</Link></li>
+            <li><Link to="/login">Anmelden</Link></li> {/* ✅ Jetzt funktioniert es! */}
           </ul>
         </nav>
       </header>

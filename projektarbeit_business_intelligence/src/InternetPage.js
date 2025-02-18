@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./styles.css";
-import ps5Image from "./images/ps5.png"; // ✅ Sicherstellen, dass das Bild auch hier geladen wird
+import ps5Image from "./images/ps5.png"; // ✅ PS5 Bild geladen
+import internetTvImage from "./images/internet-tv.png"; // ✅ Neues Bild für Internet + TV Special
 
 function InternetPage() {
   const [openQuestion, setOpenQuestion] = useState(null);
@@ -49,7 +50,7 @@ function InternetPage() {
             <li><Link to="/">Home</Link></li>
             <li><Link to="/internet">Internet</Link></li>
             <li><Link to="/tv">TV</Link></li>
-            <li><Link to="/support">Support</Link></li> {/* ✅ Support-Link korrigiert */}
+            <li><Link to="/support">Support</Link></li>
             <li><Link to="#">Anmelden</Link></li>
           </ul>
         </nav>
@@ -70,24 +71,27 @@ function InternetPage() {
         {/* 📌 Angebots-Banner */}
         <section className="offer-banner">
           <h2>Entscheiden Sie sich für das Angebot Ihrer Wahl</h2>
-          <div className="offer-container">
+          <div className="internet-offer-container">
             
             {/* Angebot 1: PS5 Slim Geschenk */}
-            <div className="offer-box">
-              <img src={ps5Image} alt="PS5 Angebot" className="offer-image" style={{ width: "250px" }} /> {/* ✅ PS5 Bildgröße erhöht */}
-              <div className="offer-content">
+            <div className="internet-offer-box">
+              <img src={ps5Image} alt="PS5 Angebot" className="internet-offer-image" />
+              <div className="internet-offer-content">
                 <p>Zum besten Internet und beliebtesten TV-Abo</p>
                 <h3>Nur bis 02.03. – PlayStation®5 Slim geschenkt</h3>
-                <Link to="/angebot" className="offer-btn">➝ Zum Angebot</Link>
+                <p className="internet-offer-price">💰 <span>104.90 CHF/Monat</span></p>
+                <Link to="/angebot" className="internet-offer-btn">➝ Zum Angebot</Link>
               </div>
             </div>
 
             {/* Angebot 2: Internet + TV Special */}
-            <div className="offer-box">
-              <div className="offer-content">
+            <div className="internet-offer-box">
+              <img src={internetTvImage} alt="Internet + TV Angebot" className="internet-offer-image" />
+              <div className="internet-offer-content">
                 <p>Bestes Internet und beliebtestes TV</p>
                 <h3>Alle Internet und TV-Abos 1 Jahr für 59.90/Mt.</h3>
-                <Link to="/angebot" className="offer-btn">➝ Zum Angebot</Link>
+                <p className="internet-offer-price">💰 <span>114.90 CHF/Monat</span></p>
+                <Link to="/angebot" className="internet-offer-btn">➝ Zum Angebot</Link>
               </div>
             </div>
           </div>
