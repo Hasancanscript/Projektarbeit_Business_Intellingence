@@ -1,60 +1,45 @@
 import React from "react";
 import "./styles.css";
+import ps5Image from "./images/ps5.png"; // ✅ PS5-Bild importiert
 
 function OfferPage() {
   return (
     <div className="offer-page">
-      <header>
-        <nav>
-          <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/internet">Internet</a></li>
-            <li><a href="/tv">TV</a></li>
-            <li><a href="#">Support</a></li>
-            <li><a href="#">Anmelden</a></li>
-          </ul>
-        </nav>
-      </header>
-
-      <main>
-        <section className="offer-hero">
-          <h1>🎁 PlayStation®5 Slim geschenkt zum besten Internet & TV-Abo</h1>
-          <p>Jetzt profitieren: Sichere dir ultraschnelles Internet mit exklusiven Extras.</p>
-        </section>
-
-        <section className="offer-container">
-          <div className="offer-card">
-            <img src="ps5-internet.png" alt="PS5 Angebot" className="offer-image" />
-            <h2>Internet M + TV M + PS5 Slim</h2>
-            <ul>
-              <li>Bis zu 1 Gbit/s Internetgeschwindigkeit</li>
-              <li>290+ TV-Sender und Replay TV</li>
-              <li>Gratis Router mit Wi-Fi 6</li>
-              <li>PS5 Slim geschenkt</li>
-            </ul>
-            <p className="offer-price">💰 104.90 CHF/Monat</p>
-            <button className="offer-btn">Zum Angebot</button>
+      {/* Angebots-Banner */}
+      <section className="offer-banner">
+        <h2>Entscheiden Sie sich für das Angebot Ihrer Wahl</h2>
+        <div className="offer-container">
+          
+          {/* Angebot 1: PS5 Slim Geschenk */}
+          <div className="offer-box">
+            <img src={ps5Image} alt="PS5 Angebot" className="offer-image" />
+            <div className="offer-content">
+              <p>Zum besten Internet und beliebtesten TV-Abo</p>
+              <h3>Nur bis 02.03. – PlayStation®5 Slim geschenkt</h3>
+              <p className="offer-price">💰 104.90 CHF/Monat</p>
+              <a href="#" className="offer-btn">→ Zum Angebot</a>
+            </div>
           </div>
 
-          <div className="offer-card">
-            <img src="ps5-premium.png" alt="PS5 Premium Angebot" className="offer-image" />
-            <h2>Internet L + TV M + PS5 Slim</h2>
-            <ul>
-              <li>Bis zu 10 Gbit/s Internetgeschwindigkeit</li>
-              <li>290+ TV-Sender und Replay TV</li>
-              <li>Gratis Router mit Wi-Fi 7</li>
-              <li>PS5 Slim geschenkt</li>
-            </ul>
-            <p className="offer-price">💰 114.90 CHF/Monat</p>
-            <button className="offer-btn">Zum Angebot</button>
+          {/* Angebot 2: Internet + TV Special */}
+          <div className="offer-box">
+            {/* ❌ Problematisches Bild entfernt */}
+            <div className="offer-content">
+              <p>Bestes Internet und beliebtestes TV</p>
+              <h3>Alle Internet und TV-Abos 1 Jahr für 59.90/Mt.</h3>
+              <p className="offer-price">💰 114.90 CHF/Monat</p>
+              <a href="#" className="offer-btn">→ Zum Angebot</a>
+            </div>
           </div>
-        </section>
+        </div>
+      </section>
 
-        <section className="offer-hotline">
-          <p>📞 Hast du Fragen? Wir beraten dich gerne: <a href="tel:0800300300">0800 300 300</a></p>
-        </section>
-      </main>
+      {/* Hotline-Bereich */}
+      <section className="offer-hotline">
+        <p>📞 Hast du Fragen? Wir beraten dich gerne: <a href="tel:0800300300">0800 300 300</a></p>
+      </section>
 
+      {/* Footer */}
       <footer>
         <p>&copy; 2025 TechCom - Alle Rechte vorbehalten</p>
       </footer>

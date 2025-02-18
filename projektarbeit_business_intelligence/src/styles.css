@@ -355,192 +355,150 @@ main {
   text-decoration: underline;
 }
 
-/* Angebots-Banner */
+/* 🔹 Angebots-Banner auf der Internet-Seite (wie bei Swisscom) */
 .offer-banner {
   background: linear-gradient(to right, #0072ff, #9333ea);
   color: white;
-  padding: 30px;
+  padding: 40px;
   text-align: center;
   border-radius: 12px;
   margin: 40px auto;
-  max-width: 1100px;
+  max-width: 1200px;
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
 }
 
+/* 🔹 Neuer Text über den Angeboten */
+.offer-subtitle {
+  font-size: 16px;
+  font-weight: bold;
+  color: #d1d1d1;
+  margin-bottom: 10px;
+}
+
 .offer-banner h2 {
-  font-size: 20px;
+  font-size: 28px;
+  font-weight: bold;
   margin-bottom: 20px;
 }
 
+/* 🔹 Angebotscontainer */
 .offer-container {
   display: flex;
-  justify-content: center;
-  gap: 20px;
+  justify-content: space-between;
+  align-items: stretch;
+  gap: 25px;
+  flex-wrap: nowrap;
+  max-width: 1200px;
+  margin: auto;
 }
 
+/* 🔹 Angebotsbox */
 .offer-box {
-  background: white;
-  color: black;
-  padding: 20px;
-  border-radius: 12px;
-  text-align: left;
   width: 48%;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  background: white;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.12);
+  transition: all 0.3s ease;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
+.offer-box:hover {
+  transform: scale(1.03);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.2);
+}
+
+/* 🔹 Bildgröße angepasst */
 .offer-box img {
-  width: 80px;
-  margin-bottom: 10px;
+  width: 180px; /* Größere PS5 */
+  margin-bottom: 15px;
+}
+
+/* 🔹 Textcontainer */
+.offer-box-content {
+  text-align: center;
 }
 
 .offer-box h3 {
-  font-size: 18px;
+  font-size: 20px;
   font-weight: bold;
+  color: #333;
+  margin-bottom: 15px;
 }
 
 .offer-box p {
-  font-size: 14px;
-}
-
-.offer-box a {
-  color: #0072ff;
-  text-decoration: none;
-  font-weight: bold;
-  display: inline-block;
-  margin-top: 10px;
-}
-
-.offer-box a:hover {
-  text-decoration: underline;
-}
-
-/* Responsive Design für Angebots-Banner */
-@media (max-width: 768px) {
-  .offer-container {
-    flex-direction: column;
-  }
-  .offer-box {
-    width: 100%;
-  }
-}
-
-/* Angebotsseite */
-.offer-page {
-  background: linear-gradient(to right, #004080, #6a0dad);
-  color: white;
-  min-height: 100vh;
-  text-align: center;
-  padding-bottom: 50px;
-}
-
-/* Angebotsseite Hero-Bereich */
-.offer-hero {
-  padding: 50px 20px;
-  text-align: center;
-}
-
-.offer-hero h1 {
-  font-size: 28px;
-  font-weight: bold;
+  font-size: 16px;
+  color: #555;
   margin-bottom: 10px;
 }
 
-.offer-hero p {
-  font-size: 18px;
-  opacity: 0.9;
-}
-
-/* Angebots-Container */
-.offer-container {
-  display: flex;
-  justify-content: center;
-  gap: 30px;
-  padding: 40px;
-  flex-wrap: wrap;
-}
-
-/* Angebotskarten */
-.offer-card {
-  background: white;
-  color: #333;
-  padding: 30px;
-  border-radius: 15px;
-  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
-  text-align: center;
-  max-width: 350px;
-  transition: transform 0.3s ease;
-}
-
-.offer-card:hover {
-  transform: scale(1.05);
-}
-
-/* Angebotsbilder */
-.offer-image {
-  width: 100%;
-  height: auto;
-  margin-bottom: 15px;
-  border-radius: 10px;
-}
-
-/* Preisinformationen */
+/* 🔹 Preisinformation */
 .offer-price {
   font-size: 22px;
   font-weight: bold;
+  color: #ff9900;
+  margin: 10px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.offer-price::before {
+  content: "💰";
+  margin-right: 8px;
+}
+
+/* 🔹 Angebots-Button */
+.offer-btn {
+  display: inline-block;
+  padding: 14px 22px;
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
+  background: #0066da;
+  text-decoration: none;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.15);
+  transition: background 0.3s ease, transform 0.2s ease;
   margin-top: 15px;
 }
 
-/* Angebotsbutton */
-.offer-btn {
-  background-color: #0066da;
-  color: white;
-  padding: 14px 20px;
-  font-size: 16px;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease;
-}
-
 .offer-btn:hover {
-  background-color: #004080;
+  background: #004080;
   transform: scale(1.05);
 }
 
-/* Hotline-Bereich */
-.offer-hotline {
-  margin-top: 40px;
-  font-size: 18px;
-}
-
-.offer-hotline a {
-  font-weight: bold;
-  color: #ffcc00;
-  text-decoration: none;
-}
-
-.offer-hotline a:hover {
-  text-decoration: underline;
-}
-
-/* Responsive Design für Angebotsseite */
+/* 🔹 Responsive Design */
 @media (max-width: 768px) {
   .offer-container {
     flex-direction: column;
     align-items: center;
   }
-  
-  .offer-card {
-    width: 90%;
-  }
-}
 
-/* Support-Seite */
-.support-page {
-  background: white;
-  min-height: 100vh;
-  text-align: center;
-  padding-bottom: 50px;
+  .offer-box {
+    width: 100%;
+    text-align: center;
+    padding: 35px;
+  }
+
+  .offer-box img {
+    width: 150px;
+    margin-bottom: 15px;
+  }
+
+  .offer-box-content {
+    align-items: center;
+  }
+
+  .offer-btn {
+    align-self: center;
+    width: 100%;
+    max-width: 250px;
+  }
 }
 
 /* Hero-Bereich */
