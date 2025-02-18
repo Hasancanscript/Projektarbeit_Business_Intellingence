@@ -413,7 +413,7 @@ main {
 
 /* 🔹 Bildgröße angepasst */
 .offer-box img {
-  width: 180px; /* Größere PS5 */
+  width: 600px; /* Größere PS5 */
   margin-bottom: 15px;
 }
 
@@ -501,89 +501,134 @@ main {
   }
 }
 
-/* Hero-Bereich */
-.support-hero {
-  padding: 40px;
-  background: linear-gradient(to right, #004080, #0066da);
-  color: white;
-  text-align: center;
-  border-radius: 12px;
-  margin: 30px auto;
-  max-width: 1100px;
-  box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.15);
-}
-
-.support-hero h1 {
-  font-size: 28px;
-  font-weight: bold;
-  margin-bottom: 10px;
-}
-
-.support-hero p {
-  font-size: 18px;
-  opacity: 0.9;
-}
-
-/* Support-Themen */
+/* 🔹 Gesamter Hintergrund für besseren Kontrast */
 .support-container {
-  max-width: 1100px;
-  margin: 40px auto;
-  text-align: left;
-  padding: 20px;
-}
-
-.support-container h2 {
-  font-size: 22px;
-  margin-bottom: 20px;
-  color: #004080;
-}
-
-/* Grid für Support-Optionen */
-.support-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
-}
-
-/* Support-Buttons */
-.support-item {
-  background: white;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  padding: 15px;
+  max-width: 1000px;
+  margin: auto;
+  padding: 50px 20px;
   text-align: center;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease;
-  text-decoration: none;
-  color: #333;
+  background: #ffffff; /* Weißer Hintergrund für mehr Klarheit */
+  border-radius: 12px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-.support-item:hover {
-  transform: scale(1.05);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-}
-
-/* Hotline-Bereich */
-.support-hotline {
-  margin-top: 40px;
-  font-size: 18px;
-  text-align: center;
-}
-
-.support-hotline a {
+/* 🔹 Überschrift schöner gestalten */
+.support-main h1 {
+  font-size: 30px;
   font-weight: bold;
-  color: #ffcc00;
-  text-decoration: none;
+  margin-bottom: 15px;
+  color: #1a1a1a;
 }
 
-.support-hotline a:hover {
+.support-main p {
+  font-size: 18px;
+  color: #555;
+  margin-bottom: 40px;
+}
+
+/* 🔹 Haupt-Container */
+.support-container {
+  max-width: 1000px; /* Mehr Breite für bessere Darstellung */
+  margin: 40px auto;
+  padding: 50px 30px;
+  text-align: center;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* 🔹 Support-Buttons */
+.support-options {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  max-width: 700px; /* Etwas breiter für bessere Lesbarkeit */
+  margin: auto;
+}
+
+.support-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 18px;
+  background: white;
+  color: #1a1a1a;
+  font-size: 18px; /* Etwas größere Schrift für bessere Sichtbarkeit */
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 8px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  border: 1px solid #ddd;
+  width: 100%;
+  height: 70px; /* Einheitliche Höhe für bessere Darstellung */
+}
+
+/* 🔹 Hover-Effekt */
+.support-btn:hover {
+  background: #e8f0ff;
+  transform: scale(1.05);
+}
+
+/* 🔹 Detailansicht */
+.support-detail {
+  background: #f9f9f9;
+  padding: 25px;
+  margin-top: 30px;
+  border-radius: 10px;
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+  text-align: left; /* Text linksbündig für bessere Lesbarkeit */
+}
+
+/* 🔹 Titel für Detailansicht */
+.support-detail h2 {
+  font-size: 22px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+/* 🔹 Liste der Inhalte */
+.support-detail ul {
+  list-style: none;
+  padding: 0;
+}
+
+.support-detail li {
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+/* 🔹 Links in der Detailansicht */
+.support-detail a {
+  color: #007bff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.support-detail a:hover {
   text-decoration: underline;
 }
 
-/* Responsive Design für Support-Seite */
+/* 🔹 Responsive Design */
 @media (max-width: 768px) {
-  .support-grid {
-    grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));
+  .support-options {
+    grid-template-columns: repeat(1, 1fr); /* 1 Spalte auf kleineren Geräten */
+  }
+}
+
+@media (max-width: 480px) {
+  .support-container {
+    width: 90%; /* Weniger Abstand links/rechts auf kleinen Bildschirmen */
+    padding: 30px;
+  }
+
+  .support-options {
+    max-width: 100%;
+  }
+
+  .support-btn {
+    font-size: 16px;
+    height: 60px;
   }
 }
 

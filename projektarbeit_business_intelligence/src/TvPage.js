@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom"; // ✅ Link für Router importiert
 import "./styles.css"; // Aktualisierte Stile für das moderne Design
 
 function TvPage() {
@@ -40,11 +41,11 @@ function TvPage() {
       <header>
         <nav>
           <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/internet">Internet</a></li>
-            <li><a href="/tv">TV</a></li>
-            <li><a href="#">Support</a></li>
-            <li><a href="#">Anmelden</a></li>
+            <li><Link to="/">Home</Link></li>
+            <li><Link to="/internet">Internet</Link></li>
+            <li><Link to="/tv">TV</Link></li>
+            <li><Link to="/support">Support</Link></li> {/* ✅ Support-Link korrigiert */}
+            <li><Link to="#">Anmelden</Link></li>
           </ul>
         </nav>
       </header>

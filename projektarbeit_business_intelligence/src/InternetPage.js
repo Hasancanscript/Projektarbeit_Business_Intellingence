@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom"; // 🔥 WICHTIG: Link importieren!
+import { Link } from "react-router-dom";
 import "./styles.css";
+import ps5Image from "./images/ps5.png"; // ✅ Sicherstellen, dass das Bild auch hier geladen wird
 
 function InternetPage() {
   const [openQuestion, setOpenQuestion] = useState(null);
@@ -39,14 +40,6 @@ function InternetPage() {
     }
   ];
 
-  const faqItems = [
-    { question: "Welche Internet-Abos bietet TechCom?", answer: "TechCom bietet verschiedene Internet-Abos mit Geschwindigkeiten von 100 Mbit/s bis 10 Gbit/s." },
-    { question: "Welche Internetgeschwindigkeit benötige ich?", answer: "Das hängt von Ihrem Bedarf ab. Normales Surfen: 100 Mbit/s, Streaming & Gaming: 1 Gbit/s oder mehr." },
-    { question: "Welche Vorteile bietet TechCom Internet?", answer: "Unsere Abos bieten ultraschnelles Internet, kostenloses WLAN, Sicherheitspakete und eine stabile Verbindung." },
-    { question: "Wie kann ich mein Internet-Abo zu TechCom wechseln?", answer: "Ein Wechsel ist einfach: Bestellen Sie Ihr neues Abo, und wir kümmern uns um den Rest." },
-    { question: "Gibt es kostenlose Zusatzleistungen?", answer: "Ja, Sie erhalten kostenlose WLAN-Hotspots, sicheres Surfen und einen gratis Router." }
-  ];
-
   return (
     <div>
       {/* Navigation */}
@@ -56,7 +49,7 @@ function InternetPage() {
             <li><Link to="/">Home</Link></li>
             <li><Link to="/internet">Internet</Link></li>
             <li><Link to="/tv">TV</Link></li>
-            <li><Link to="#">Support</Link></li>
+            <li><Link to="/support">Support</Link></li> {/* ✅ Support-Link korrigiert */}
             <li><Link to="#">Anmelden</Link></li>
           </ul>
         </nav>
@@ -78,17 +71,24 @@ function InternetPage() {
         <section className="offer-banner">
           <h2>Entscheiden Sie sich für das Angebot Ihrer Wahl</h2>
           <div className="offer-container">
+            
+            {/* Angebot 1: PS5 Slim Geschenk */}
             <div className="offer-box">
-              <img src="https://via.placeholder.com/100" alt="PS5 Angebot" />
-              <p>Zum besten Internet und beliebtesten TV-Abo</p>
-              <h3>Nur bis 02.03. – PlayStation®5 Slim geschenkt</h3>
-              <Link to="/angebot">➝ Zum Angebot</Link> {/* 🔥 Korrekte Navigation */}
+              <img src={ps5Image} alt="PS5 Angebot" className="offer-image" style={{ width: "250px" }} /> {/* ✅ PS5 Bildgröße erhöht */}
+              <div className="offer-content">
+                <p>Zum besten Internet und beliebtesten TV-Abo</p>
+                <h3>Nur bis 02.03. – PlayStation®5 Slim geschenkt</h3>
+                <Link to="/angebot" className="offer-btn">➝ Zum Angebot</Link>
+              </div>
             </div>
+
+            {/* Angebot 2: Internet + TV Special */}
             <div className="offer-box">
-              <img src="https://via.placeholder.com/100" alt="Internet + TV" />
-              <p>Bestes Internet und beliebtestes TV</p>
-              <h3>Alle Internet und TV-Abos 1 Jahr für 59.90/Mt.</h3>
-              <Link to="/angebot">➝ Zum Angebot</Link> {/* 🔥 Korrekte Navigation */}
+              <div className="offer-content">
+                <p>Bestes Internet und beliebtestes TV</p>
+                <h3>Alle Internet und TV-Abos 1 Jahr für 59.90/Mt.</h3>
+                <Link to="/angebot" className="offer-btn">➝ Zum Angebot</Link>
+              </div>
             </div>
           </div>
         </section>

@@ -1,11 +1,17 @@
-import React from "react";
-import { Link } from "react-router-dom"; // ✅ Sicherstellen, dass Link importiert ist
-import "./styles.css"; // Falls du globale Styles hast
+import React, { useState } from "react";
+import { Link } from "react-router-dom"; // ✅ Navigation funktioniert jetzt
+import "./styles.css"; // Deine CSS-Datei
 
 function SupportPage() {
+  const [selectedTopic, setSelectedTopic] = useState(null);
+
+  const handleClick = (topic) => {
+    setSelectedTopic(selectedTopic === topic ? null : topic);
+  };
+
   return (
-    <div className="support-container">
-      {/* 🔹 Navigation */}
+    <div>
+      {/* 🔹 Navigationsleiste eingefügt */}
       <header>
         <nav>
           <ul>
@@ -18,27 +24,115 @@ function SupportPage() {
         </nav>
       </header>
 
-      {/* 🔹 Hauptbereich */}
-      <main className="support-main">
+      <div className="support-container">
+        {/* 🔹 Überschrift */}
         <h1>📞 Kontakt & Support</h1>
         <p>Wählen Sie Ihr Anliegen und treten Sie mit uns in Kontakt.</p>
 
-        {/* Support-Kategorien mit echten Links */}
+        {/* 🔹 Support-Buttons */}
         <div className="support-options">
-          <Link to="#" className="support-btn">💬 Beratung & Bestellung</Link>
-          <Link to="#" className="support-btn">⚙️ Produkt einrichten</Link>
-          <Link to="#" className="support-btn">📞 Störungen & Defekte</Link>
-          <Link to="#" className="support-btn">💰 Rechnungen & Bezahlen</Link>
-          <Link to="#" className="support-btn">📑 Verträge & Daten</Link>
-          <Link to="#" className="support-btn">🔄 Wechsel zu TechCom</Link>
-          <Link to="#" className="support-btn">🚫 Kündigung</Link>
+          <button className="support-btn" onClick={() => handleClick("beratung")}>
+            💬 Beratung & Bestellung
+          </button>
+          <button className="support-btn" onClick={() => handleClick("produkt")}>
+            ⚙️ Produkt einrichten
+          </button>
+          <button className="support-btn" onClick={() => handleClick("stoerung")}>
+            📞 Störungen & Defekte
+          </button>
+          <button className="support-btn" onClick={() => handleClick("rechnung")}>
+            💰 Rechnungen & Bezahlen
+          </button>
+          <button className="support-btn" onClick={() => handleClick("vertraege")}>
+            📑 Verträge & Daten
+          </button>
+          <button className="support-btn" onClick={() => handleClick("wechsel")}>
+            🔄 Wechsel zu TechCom
+          </button>
+          <button className="support-btn" onClick={() => handleClick("kuendigung")}>
+            🚫 Kündigung
+          </button>
         </div>
-      </main>
 
-      {/* 🔹 Footer */}
-      <footer>
-        <p>&copy; 2025 TechCom - Alle Rechte vorbehalten</p>
-      </footer>
+        {/* 🔹 Detailansicht (unterhalb der Buttons angezeigt) */}
+        {selectedTopic === "beratung" && (
+          <div className="support-detail">
+            <h2>💬 Beratung & Bestellung</h2>
+            <p>Wie können wir Ihnen helfen?</p>
+            <ul>
+              <li>📞 <strong>Hotline:</strong> 0800 300 300 (08:00 - 20:00)</li>
+              <li>📩 <strong>Kontaktformular:</strong> <a href="#">Hier ausfüllen</a></li>
+              <li>💬 <strong>Live-Chat:</strong> <a href="#">Jetzt starten</a></li>
+            </ul>
+          </div>
+        )}
+
+        {selectedTopic === "produkt" && (
+          <div className="support-detail">
+            <h2>⚙️ Produkt einrichten</h2>
+            <p>Schritt-für-Schritt-Anleitungen zur Einrichtung deines Geräts.</p>
+            <ul>
+              <li>📑 <strong>Anleitungen:</strong> <a href="#">Hier ansehen</a></li>
+              <li>📞 <strong>Support:</strong> 0800 300 301</li>
+            </ul>
+          </div>
+        )}
+
+        {selectedTopic === "stoerung" && (
+          <div className="support-detail">
+            <h2>📞 Störungen & Defekte</h2>
+            <p>Überprüfe den aktuellen Status oder melde ein Problem.</p>
+            <ul>
+              <li>🔍 <strong>Störungsmeldung:</strong> <a href="#">Hier prüfen</a></li>
+              <li>📞 <strong>Technischer Support:</strong> 0800 300 302</li>
+            </ul>
+          </div>
+        )}
+
+        {selectedTopic === "rechnung" && (
+          <div className="support-detail">
+            <h2>💰 Rechnungen & Bezahlen</h2>
+            <p>Alles zu deinen Rechnungen und Zahlungsmöglichkeiten.</p>
+            <ul>
+              <li>🧾 <strong>Rechnung einsehen:</strong> <a href="#">Hier öffnen</a></li>
+              <li>💳 <strong>Zahlungsmethoden:</strong> <a href="#">Hier ändern</a></li>
+            </ul>
+          </div>
+        )}
+
+        {selectedTopic === "vertraege" && (
+          <div className="support-detail">
+            <h2>📑 Verträge & Daten</h2>
+            <p>Vertragsdetails und persönliche Daten verwalten.</p>
+            <ul>
+              <li>📜 <strong>Vertrag einsehen:</strong> <a href="#">Hier öffnen</a></li>
+              <li>📧 <strong>Daten ändern:</strong> <a href="#">Hier aktualisieren</a></li>
+            </ul>
+          </div>
+        )}
+
+        {selectedTopic === "wechsel" && (
+          <div className="support-detail">
+            <h2>🔄 Wechsel zu TechCom</h2>
+            <p>Wechsle zu TechCom in wenigen Schritten.</p>
+            <ul>
+              <li>📄 <strong>Wechselantrag:</strong> <a href="#">Jetzt starten</a></li>
+              <li>☎️ <strong>Kostenlose Beratung:</strong> 0800 300 303</li>
+            </ul>
+          </div>
+        )}
+
+        {selectedTopic === "kuendigung" && (
+          <div className="support-detail">
+            <h2>🚫 Kündigung</h2>
+            <p>Hier kannst du dein Abo kündigen oder anpassen.</p>
+            <ul>
+              <li>📄 <strong>Kündigung einreichen:</strong> <a href="#">Hier beantragen</a></li>
+              <li>📞 <strong>Beratung zur Kündigung:</strong> 0800 300 304</li>
+            </ul>
+          </div>
+        )}
+      </div>
     </div>
   );
 }
