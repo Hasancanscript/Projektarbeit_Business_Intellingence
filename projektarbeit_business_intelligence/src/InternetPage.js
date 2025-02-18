@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom"; // 🔥 WICHTIG: Link importieren!
 import "./styles.css";
 
 function InternetPage() {
@@ -52,11 +53,11 @@ function InternetPage() {
       <header>
         <nav>
           <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/internet">Internet</a></li>
-            <li><a href="/tv">TV</a></li>
-            <li><a href="#">Support</a></li>
-            <li><a href="#">Anmelden</a></li>
+            <li><Link to="/">Home</Link></li>
+            <li><Link to="/internet">Internet</Link></li>
+            <li><Link to="/tv">TV</Link></li>
+            <li><Link to="#">Support</Link></li>
+            <li><Link to="#">Anmelden</Link></li>
           </ul>
         </nav>
       </header>
@@ -81,13 +82,13 @@ function InternetPage() {
               <img src="https://via.placeholder.com/100" alt="PS5 Angebot" />
               <p>Zum besten Internet und beliebtesten TV-Abo</p>
               <h3>Nur bis 02.03. – PlayStation®5 Slim geschenkt</h3>
-              <a href="#">➝ Zum Angebot</a>
+              <Link to="/angebot">➝ Zum Angebot</Link> {/* 🔥 Korrekte Navigation */}
             </div>
             <div className="offer-box">
               <img src="https://via.placeholder.com/100" alt="Internet + TV" />
               <p>Bestes Internet und beliebtestes TV</p>
               <h3>Alle Internet und TV-Abos 1 Jahr für 59.90/Mt.</h3>
-              <a href="#">➝ Zum Angebot</a>
+              <Link to="/angebot">➝ Zum Angebot</Link> {/* 🔥 Korrekte Navigation */}
             </div>
           </div>
         </section>

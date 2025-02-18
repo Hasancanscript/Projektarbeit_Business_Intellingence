@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom"; // ✅ Importiert Link für Navigation
 import "./styles.css";
 
 function LandingPage() {
@@ -40,18 +41,20 @@ function LandingPage() {
 
   return (
     <div>
+      {/* 🔹 Navigation */}
       <header>
         <nav>
           <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/internet">Internet</a></li>
-            <li><a href="/tv">TV</a></li>
-            <li><a href="#">Support</a></li>
-            <li><a href="#">Anmelden</a></li>
+            <li><Link to="/">Home</Link></li>
+            <li><Link to="/internet">Internet</Link></li>
+            <li><Link to="/tv">TV</Link></li>
+            <li><Link to="/support">Support</Link></li> {/* ✅ Support-Link korrigiert */}
+            <li><Link to="#">Anmelden</Link></li>
           </ul>
         </nav>
       </header>
 
+      {/* 🔹 Hauptbereich */}
       <main>
         <section className="hero">
           <h1>TechCom Internet-Abos</h1>
@@ -76,7 +79,7 @@ function LandingPage() {
           <p><strong>Projektarbeit im Fach Business Intelligence</strong></p>
         </section>
 
-        {/* Produktübersicht mit gleicher Struktur wie TV- & Internet-Seite */}
+        {/* 🔹 Produktübersicht */}
         <section className="home-products">
           {homeProducts.map((product, index) => (
             <div className="home-card" key={index}>
@@ -103,6 +106,7 @@ function LandingPage() {
         </section>
       </main>
 
+      {/* 🔹 Footer */}
       <footer>
         <p>&copy; 2025 TechCom - Alle Rechte vorbehalten</p>
       </footer>
