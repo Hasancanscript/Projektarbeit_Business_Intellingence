@@ -1025,3 +1025,40 @@ main {
 .chat-input button:hover {
   background: #0059d4;
 }
+/* 🔹 Preisvergleichs-Tabelle */
+.pricing-section {
+  text-align: center;
+  padding: 20px;
+}
+
+.pricing-table {
+  width: 100%;
+  max-width: 800px;
+  margin: auto;
+  border-collapse: collapse;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.pricing-table th, .pricing-table td {
+  border: 1px solid #ddd;
+  padding: 12px;
+  text-align: center;
+}
+
+.pricing-table th {
+  background-color: #f8f9fa;
+  font-weight: bold;
+}
+
+.techcom-row {
+  background-color: #e3f2fd; /* Blau für TechCom */
+}
+
+.swisscom-row {
+  background-color: #fdecea; /* Rot für Swisscom */
+}
+
+.pricing-table td strong {
+  font-size: 1.2em;
+  color: #28a745;
+}

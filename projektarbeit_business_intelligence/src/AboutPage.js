@@ -8,6 +8,7 @@ import team2 from "./images/team2.png";
 import team3 from "./images/team3.png";
 import team4 from "./images/team4.png";
 import team5 from "./images/team5.png";
+import boncuk from "./images/boncuk.png"; // 🔹 Neues Bild hinzugefügt
 
 function AboutPage() {
   const teamMembers = [
@@ -16,6 +17,7 @@ function AboutPage() {
     { name: "Frédéric Hofer", role: "Senior Projektleiter | Major Incident Manager", diploma: "Dipl. Wirtschaftsinformatiker HF", image: team3 },
     { name: "Simon Gemetti", role: "Backend-Entwickler | Senior Systems Engineer", diploma: "Dipl. Wirtschaftsinformatiker HF", image: team4 },
     { name: "Pascal Aebischer", role: "Systems Engineer | Microsoft Certified Trainer", diploma: "Dipl. Wirtschaftsinformatiker HF", image: team5 },
+    { name: "Boncuk", role: "Chief Happiness Officer 🐱", diploma: "Certified Purring Expert", image: boncuk }, // 🔹 Boncuk als Teammitglied hinzugefügt
   ];
 
   return (

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { NavLink } from "react-router-dom"; // ✅ NavLink für aktive Navigation
-import meganFox from "./images/megan-fox.png"; // 🔹 Bild aus src/images importieren
+import { NavLink } from "react-router-dom";
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from "recharts";
+import meganFox from "./images/megan-fox.png";
 import "./styles.css";
 
 function LandingPage() {
@@ -15,18 +16,17 @@ function LandingPage() {
       setShowPopup(true);
     }, 3000);
 
-    return () => clearTimeout(timer); // Timer aufräumen, falls die Seite vorher verlassen wird
+    return () => clearTimeout(timer);
   }, []);
 
   const handleAddressChange = (e) => {
     setAddress(e.target.value);
   };
 
-  // Nachricht absenden
   const sendMessage = () => {
     if (message.trim() !== "") {
       setChat([...chat, { user: "Du", text: message }]);
-      setMessage(""); // Eingabefeld leeren
+      setMessage("");
     }
   };
 
@@ -58,6 +58,15 @@ function LandingPage() {
       price: "59.90 CHF/Monat",
       oldPrice: "89.90 CHF"
     }
+  ];
+
+  // 💡 Dummy-Daten für den Chart
+  const dummyData = [
+    { name: "Tag 1", TechCom: 39.90, Swisscom: 49.90 },
+    { name: "Tag 2", TechCom: 41.00, Swisscom: 50.00 },
+    { name: "Tag 3", TechCom: 38.50, Swisscom: 48.50 },
+    { name: "Tag 4", TechCom: 40.00, Swisscom: 51.00 },
+    { name: "Tag 5", TechCom: 42.00, Swisscom: 49.00 },
   ];
 
   return (
@@ -109,13 +118,10 @@ function LandingPage() {
               <div className="home-info">
                 <p><strong>Internet-Geschwindigkeit</strong></p>
                 <p>{product.speed}</p>
-
                 <p><strong>WLAN-Router</strong></p>
                 <p>{product.router}</p>
-
                 <p><strong>Sicherheit</strong></p>
                 <p>{product.security}</p>
-
                 <p><strong>Zusatzleistungen</strong></p>
                 <p>{product.extras.join(", ")}</p>
               </div>
@@ -132,10 +138,7 @@ function LandingPage() {
       {showPopup && (
         <div className="support-popup">
           <div className="support-avatar">
-            <img 
-              src={meganFox}
-              alt="Support Fee Verkäuferin Megan Fox"
-            />
+            <img src={meganFox} alt="Support Fee Verkäuferin Megan Fox" />
           </div>
           <div className="support-text">
             <h3>Support Fee</h3>
@@ -143,26 +146,24 @@ function LandingPage() {
             <p>Und weisst du was? Ich bin die Frau von Simon Gemetti. 😉🔥</p>
           </div>
           <button onClick={() => setShowPopup(false)} className="close-btn">✖</button>
-          
-          {/* 🔹 Chat-Bereich */}
-          <div className="chat-container">
-            <div className="chat-messages">
-              {chat.map((msg, index) => (
-                <p key={index}><strong>{msg.user}:</strong> {msg.text}</p>
-              ))}
-            </div>
-            <div className="chat-input">
-              <input 
-                type="text" 
-                placeholder="Schreibe eine Nachricht..." 
-                value={message} 
-                onChange={(e) => setMessage(e.target.value)}
-              />
-              <button onClick={sendMessage}>Senden</button>
-            </div>
-          </div>
         </div>
       )}
+
+      {/* 🔹 Preisdiagramm (Chart) ganz unten */}
+      <section className="pricing-chart">
+        <h2>📈 Preisentwicklung von TechCom & Swisscom</h2>
+        <ResponsiveContainer width="90%" height={300}>
+          <LineChart data={dummyData}>
+            <CartesianGrid strokeDasharray="3 3" />
+            <XAxis dataKey="name" />
+            <YAxis domain={['auto', 'auto']} />
+            <Tooltip />
+            <Legend />
+            <Line type="monotone" dataKey="TechCom" stroke="#007bff" strokeWidth={2} />
+            <Line type="monotone" dataKey="Swisscom" stroke="#dc3545" strokeWidth={2} />
+          </LineChart>
+        </ResponsiveContainer>
+      </section>
 
       {/* 🔹 Footer */}
       <footer>
