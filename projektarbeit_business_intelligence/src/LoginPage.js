@@ -1,12 +1,14 @@
 import React from "react";
-import "./styles.css"; // Stelle sicher, dass deine CSS-Datei eingebunden ist
+import { Link } from "react-router-dom"; // ✅ Link für Navigation hinzugefügt
+import "./styles.css";
+import logo from "./images/logo.png"; // ✅ Logo importieren
 
 function LoginPage() {
   return (
     <div className="login-container">
       <div className="login-box">
         {/* Logo */}
-        <img src="/images/logo.png" alt="TechCom Logo" className="login-logo" />
+        <img src={logo} alt="TechCom Logo" className="login-logo" />
 
         {/* Titel */}
         <h2 className="login-title">TechCom Login</h2>
@@ -24,6 +26,11 @@ function LoginPage() {
         <div className="login-links">
           <a href="#" className="login-link">Benutzername vergessen?</a>
           <a href="#" className="login-link">Neu registrieren</a>
+        </div>
+
+        {/* 🔹 Navigation zurück zur Startseite */}
+        <div className="login-back">
+          <Link to="/" className="login-back-link">← Zurück zur Startseite</Link>
         </div>
       </div>
     </div>

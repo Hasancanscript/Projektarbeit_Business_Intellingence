@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./styles.css";
-import ps5Image from "./images/ps5.png"; // ✅ PS5 Bild geladen
-import internetTvImage from "./images/internet-tv.png"; // ✅ Neues Bild für Internet + TV Special
+import ps5Image from "./images/ps5.png"; // ✅ PS5 Bild
+import internetTvImage from "./images/internet-tv.png"; // ✅ Bild für Internet + TV Special
 
 function InternetPage() {
   const [openQuestion, setOpenQuestion] = useState(null);
@@ -51,7 +51,7 @@ function InternetPage() {
             <li><Link to="/internet">Internet</Link></li>
             <li><Link to="/tv">TV</Link></li>
             <li><Link to="/support">Support</Link></li>
-            <li><Link to="#">Anmelden</Link></li>
+            <li><Link to="/login">Anmelden</Link></li>
           </ul>
         </nav>
       </header>
@@ -60,7 +60,7 @@ function InternetPage() {
       <main>
         <section className="hero">
           <h1>Die besten Internet-Abos der Schweiz</h1>
-          <p>Surfen Sie im größten Glasfasernetz der Schweiz mit gratis Router & Surf-Schutz.</p>
+          <p>Surfen Sie im grössten Glasfasernetz der Schweiz mit gratis Router & Surf-Schutz.</p>
           <p className="promo">🎁 <strong>Jetzt alle Abos für 59.90 CHF/Monat.</strong></p>
           <div className="address-check">
             <input type="text" id="address" placeholder="Strasse, Ort oder PLZ eingeben" />

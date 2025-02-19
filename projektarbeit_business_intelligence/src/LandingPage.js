@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom"; // ✅ Importiert Link für Navigation
+import { NavLink } from "react-router-dom"; // ✅ NavLink für bessere Navigation
 import "./styles.css";
 
 function LandingPage() {
@@ -45,11 +45,11 @@ function LandingPage() {
       <header>
         <nav>
           <ul>
-            <li><Link to="/">Home</Link></li>
-            <li><Link to="/internet">Internet</Link></li>
-            <li><Link to="/tv">TV</Link></li>
-            <li><Link to="/support">Support</Link></li>
-            <li><Link to="/login">Anmelden</Link></li> {/* ✅ Jetzt funktioniert es! */}
+            <li><NavLink to="/" exact className={({ isActive }) => (isActive ? "active" : "")}>Home</NavLink></li>
+            <li><NavLink to="/internet" className={({ isActive }) => (isActive ? "active" : "")}>Internet</NavLink></li>
+            <li><NavLink to="/tv" className={({ isActive }) => (isActive ? "active" : "")}>TV</NavLink></li>
+            <li><NavLink to="/support" className={({ isActive }) => (isActive ? "active" : "")}>Support</NavLink></li>
+            <li><NavLink to="/login" className={({ isActive }) => (isActive ? "active" : "")}>Anmelden</NavLink></li>
           </ul>
         </nav>
       </header>

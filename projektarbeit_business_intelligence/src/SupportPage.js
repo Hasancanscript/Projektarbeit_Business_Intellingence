@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom"; // ✅ Navigation funktioniert jetzt
+import { Link } from "react-router-dom"; 
 import "./styles.css"; // Deine CSS-Datei
 
 function SupportPage() {
@@ -19,7 +19,7 @@ function SupportPage() {
             <li><Link to="/internet">Internet</Link></li>
             <li><Link to="/tv">TV</Link></li>
             <li><Link to="/support">Support</Link></li>
-            <li><a href="#">Anmelden</a></li>
+            <li><Link to="/login">Anmelden</Link></li>
           </ul>
         </nav>
       </header>
@@ -54,7 +54,7 @@ function SupportPage() {
           </button>
         </div>
 
-        {/* 🔹 Detailansicht (unterhalb der Buttons angezeigt) */}
+        {/* 🔹 Detailansicht */}
         {selectedTopic === "beratung" && (
           <div className="support-detail">
             <h2>💬 Beratung & Bestellung</h2>

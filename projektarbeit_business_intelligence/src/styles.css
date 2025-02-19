@@ -10,9 +10,8 @@ body {
   background-color: #f9f9f9;
 }
 
-/* Header / Navigation */
 header {
-  background-color: blue;
+  background: linear-gradient(to right, #0072ff, #9333ea); /* ✅ Navigationsbereich */
   padding: 15px 20px;
   display: flex;
   align-items: center;
@@ -23,7 +22,7 @@ header {
   top: 0;
   left: 0;
   z-index: 1000;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15); /* ✅ Gleicher Schatten */
 }
 
 /* Navigation */
@@ -361,7 +360,7 @@ main {
   margin: auto;
   padding: 50px 20px;
   text-align: center;
-  background: #ffffff; /* Weißer Hintergrund für mehr Klarheit */
+  background: #ffffff; /* Weisser Hintergrund für mehr Klarheit */
   border-radius: 12px;
   box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
 }
@@ -407,7 +406,7 @@ main {
   padding: 18px;
   background: white;
   color: #1a1a1a;
-  font-size: 18px; /* Etwas größere Schrift für bessere Sichtbarkeit */
+  font-size: 18px; /* Etwas grössere Schrift für bessere Sichtbarkeit */
   font-weight: bold;
   text-decoration: none;
   border-radius: 8px;
@@ -535,7 +534,7 @@ main {
   box-shadow: 0 6px 14px rgba(0, 0, 0, 0.2);
 }
 
-/* 🔹 Bildgröße für InternetPage */
+/* 🔹 Bildgrösse für InternetPage */
 .internet-offer-image {
   width: 120px;  
   height: auto;
@@ -618,9 +617,9 @@ main {
   box-shadow: 0 6px 14px rgba(0, 0, 0, 0.2);
 }
 
-/* 🔹 Bildgröße für OfferPage */
+/* 🔹 Bildgrösse für OfferPage */
 .offer-image-offerpage {
-  width: 180px; /* Einheitliche Größe für beide Bilder */
+  width: 180px; /* Einheitliche Grösse für beide Bilder */
   height: auto;
   object-fit: contain;
 }
@@ -732,86 +731,134 @@ main {
   background-color: #f2f4f8;
 }
 
+/* Login-Seite Gesamtstil */
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f8f9fa; /* Hellgrauer Hintergrund für ein modernes Look */
+}
+
+/* Hintergrund für die ganze Seite */
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f5f7fa; /* Heller Hintergrund */
+}
+
 /* Login-Box */
 .login-box {
   background: white;
-  padding: 40px;
+  padding: 50px;
   border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   text-align: center;
-  width: 350px;
+  width: 400px;
+  border: 1px solid #dfe3e6; /* Dezente Optik */
 }
 
 /* Logo */
 .login-logo {
-  width: 50px;
-  margin-bottom: 15px;
+  width: 180px; /* ✅ Optimale Grösse
+  max-width: 100%; /* Stellt sicht, dass es nicht zu gros wird */
+  margin-bottom: 25px; /* Genügend Abstand zum Titel */
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* Titel */
 .login-title {
-  font-size: 22px;
+  font-size: 24px;
   font-weight: bold;
-  color: #003366;
+  color: #002b5c; 
   margin-bottom: 10px;
 }
 
 .login-subtitle {
-  font-size: 14px;
-  color: #666;
+  font-size: 15px;
+  color: #555;
   margin-bottom: 20px;
 }
 
 /* Eingabefeld */
 .login-label {
-  font-size: 14px;
+  font-size: 15px;
   color: #333;
   display: block;
   text-align: left;
   margin-bottom: 5px;
+  font-weight: 500;
 }
 
 .login-input {
   width: 100%;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
+  padding: 12px;
+  border: 2px solid #dfe3e6;
+  border-radius: 8px;
   font-size: 16px;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
+  transition: border-color 0.3s ease;
+  background-color: white;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.login-input:focus {
+  border-color: #005bb5;
+  outline: none;
 }
 
 /* Weiter-Button */
 .login-btn {
   width: 100%;
-  padding: 12px;
+  padding: 14px;
   font-size: 16px;
   font-weight: bold;
   color: white;
   background: #0072ff;
   border: none;
-  border-radius: 6px;
+  border-radius: 8px;
   cursor: pointer;
-  transition: background 0.3s ease;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .login-btn:hover {
   background: #005bb5;
+  transform: scale(1.02);
 }
 
 /* Links */
 .login-links {
-  margin-top: 15px;
+  margin-top: 20px;
   display: flex;
   flex-direction: column;
+  text-align: left;
 }
 
 .login-link {
-  font-size: 14px;
+  font-size: 15px;
   color: #0072ff;
   text-decoration: none;
-  margin-bottom: 5px;
+  font-weight: 500;
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+}
+
+.login-link:before {
+  content: "› ";
+  font-size: 18px;
+  color: #0072ff;
+  margin-right: 5px;
 }
 
 .login-link:hover {
   text-decoration: underline;
+  color: #005bb5;
 }

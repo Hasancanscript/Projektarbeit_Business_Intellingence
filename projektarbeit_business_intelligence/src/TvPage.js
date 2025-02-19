@@ -1,6 +1,6 @@
 import React from "react";
-import { Link } from "react-router-dom"; // ✅ Link für Router importiert
-import "./styles.css"; // Aktualisierte Stile für das moderne Design
+import { Link } from "react-router-dom";
+import "./styles.css";
 
 function TvPage() {
   const tvProducts = [
@@ -44,8 +44,8 @@ function TvPage() {
             <li><Link to="/">Home</Link></li>
             <li><Link to="/internet">Internet</Link></li>
             <li><Link to="/tv">TV</Link></li>
-            <li><Link to="/support">Support</Link></li> {/* ✅ Support-Link korrigiert */}
-            <li><Link to="#">Anmelden</Link></li>
+            <li><Link to="/support">Support</Link></li>
+            <li><Link to="/login">Anmelden</Link></li>
           </ul>
         </nav>
       </header>
