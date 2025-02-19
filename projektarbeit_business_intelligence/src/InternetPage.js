@@ -43,7 +43,7 @@ function InternetPage() {
 
   return (
     <div>
-      {/* Navigation */}
+      {/* 🔹 Navigation */}
       <header>
         <nav>
           <ul>
@@ -51,12 +51,13 @@ function InternetPage() {
             <li><Link to="/internet">Internet</Link></li>
             <li><Link to="/tv">TV</Link></li>
             <li><Link to="/support">Support</Link></li>
+            <li><Link to="/about">Über uns</Link></li> {/* ✅ Jetzt mit "Über uns" */}
             <li><Link to="/login">Anmelden</Link></li>
           </ul>
         </nav>
       </header>
 
-      {/* Hauptbereich */}
+      {/* 🔹 Hauptbereich */}
       <main>
         <section className="hero">
           <h1>Die besten Internet-Abos der Schweiz</h1>
@@ -97,7 +98,7 @@ function InternetPage() {
           </div>
         </section>
 
-        {/* Produktübersicht */}
+        {/* 🔹 Produktübersicht */}
         <section className="internet-products">
           {internetProducts.map((product, index) => (
             <div className="internet-card" key={index}>
@@ -124,7 +125,7 @@ function InternetPage() {
         </section>
       </main>
 
-      {/* Footer */}
+      {/* 🔹 Footer */}
       <footer>
         <p>&copy; 2025 TechCom - Alle Rechte vorbehalten</p>
       </footer>

@@ -1,12 +1,33 @@
-import React, { useState } from "react";
-import { NavLink } from "react-router-dom"; // ✅ NavLink für bessere Navigation
+import React, { useState, useEffect } from "react";
+import { NavLink } from "react-router-dom"; // ✅ NavLink für aktive Navigation
+import meganFox from "./images/megan-fox.png"; // 🔹 Bild aus src/images importieren
 import "./styles.css";
 
 function LandingPage() {
   const [address, setAddress] = useState("");
+  const [showPopup, setShowPopup] = useState(false);
+  const [message, setMessage] = useState("");
+  const [chat, setChat] = useState([]);
+
+  useEffect(() => {
+    // Nach 3 Sekunden das Popup anzeigen
+    const timer = setTimeout(() => {
+      setShowPopup(true);
+    }, 3000);
+
+    return () => clearTimeout(timer); // Timer aufräumen, falls die Seite vorher verlassen wird
+  }, []);
 
   const handleAddressChange = (e) => {
     setAddress(e.target.value);
+  };
+
+  // Nachricht absenden
+  const sendMessage = () => {
+    if (message.trim() !== "") {
+      setChat([...chat, { user: "Du", text: message }]);
+      setMessage(""); // Eingabefeld leeren
+    }
   };
 
   const homeProducts = [
@@ -45,10 +66,11 @@ function LandingPage() {
       <header>
         <nav>
           <ul>
-            <li><NavLink to="/" exact className={({ isActive }) => (isActive ? "active" : "")}>Home</NavLink></li>
+            <li><NavLink to="/" end className={({ isActive }) => (isActive ? "active" : "")}>Home</NavLink></li>
             <li><NavLink to="/internet" className={({ isActive }) => (isActive ? "active" : "")}>Internet</NavLink></li>
             <li><NavLink to="/tv" className={({ isActive }) => (isActive ? "active" : "")}>TV</NavLink></li>
             <li><NavLink to="/support" className={({ isActive }) => (isActive ? "active" : "")}>Support</NavLink></li>
+            <li><NavLink to="/about" className={({ isActive }) => (isActive ? "active" : "")}>Über uns</NavLink></li>
             <li><NavLink to="/login" className={({ isActive }) => (isActive ? "active" : "")}>Anmelden</NavLink></li>
           </ul>
         </nav>
@@ -105,6 +127,42 @@ function LandingPage() {
           ))}
         </section>
       </main>
+
+      {/* 🔹 Support Popup mit Megan Fox */}
+      {showPopup && (
+        <div className="support-popup">
+          <div className="support-avatar">
+            <img 
+              src={meganFox}
+              alt="Support Fee Verkäuferin Megan Fox"
+            />
+          </div>
+          <div className="support-text">
+            <h3>Support Fee</h3>
+            <p>„Hey, ich bin Megan! 💖 Hast du gerade nach einem Engel gesucht? Hier bin ich. 😘“</p>
+            <p>Und weisst du was? Ich bin die Frau von Simon Gemetti. 😉🔥</p>
+          </div>
+          <button onClick={() => setShowPopup(false)} className="close-btn">✖</button>
+          
+          {/* 🔹 Chat-Bereich */}
+          <div className="chat-container">
+            <div className="chat-messages">
+              {chat.map((msg, index) => (
+                <p key={index}><strong>{msg.user}:</strong> {msg.text}</p>
+              ))}
+            </div>
+            <div className="chat-input">
+              <input 
+                type="text" 
+                placeholder="Schreibe eine Nachricht..." 
+                value={message} 
+                onChange={(e) => setMessage(e.target.value)}
+              />
+              <button onClick={sendMessage}>Senden</button>
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* 🔹 Footer */}
       <footer>

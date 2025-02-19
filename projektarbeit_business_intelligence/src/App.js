@@ -7,7 +7,8 @@ import TvPage from "./TvPage";
 import InternetPage from "./InternetPage";
 import OfferPage from "./OfferPage";
 import SupportPage from "./SupportPage";
-import LoginPage from "./LoginPage"; // ✅ Login-Seite eingebunden
+import LoginPage from "./LoginPage"; 
+import AboutPage from "./AboutPage"; // ✅ Über uns Seite eingebunden
 
 // 🔹 ScrollToTop: Behebt das Problem mit "Anmelden" nach Navigation
 import { useEffect } from "react";
@@ -35,6 +36,7 @@ function App() {
         <Route path="/angebot" element={<OfferPage />} />
         <Route path="/support" element={<SupportPage />} />
         <Route path="/login" element={<LoginPage />} />
+        <Route path="/about" element={<AboutPage />} />
       </Routes>
     </Router>
   );
