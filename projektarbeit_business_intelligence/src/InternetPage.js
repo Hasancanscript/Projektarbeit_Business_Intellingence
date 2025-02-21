@@ -51,7 +51,8 @@ function InternetPage() {
             <li><Link to="/internet">Internet</Link></li>
             <li><Link to="/tv">TV</Link></li>
             <li><Link to="/support">Support</Link></li>
-            <li><Link to="/about">Über uns</Link></li> {/* ✅ Jetzt mit "Über uns" */}
+            <li><Link to="/preisvergleich">Preisvergleich</Link></li> {/* ✅ Jetzt mit "Preisvergleich" */}
+            <li><Link to="/about">Über uns</Link></li> 
             <li><Link to="/login">Anmelden</Link></li>
           </ul>
         </nav>

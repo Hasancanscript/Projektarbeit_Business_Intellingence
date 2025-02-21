@@ -16,7 +16,7 @@ function AboutPage() {
     { name: "Marcel Spahr", role: "Webdesigner | Senior Product Owner", diploma: "Dipl. Wirtschaftsinformatiker HF", image: team2 },
     { name: "Frédéric Hofer", role: "Senior Projektleiter | Major Incident Manager", diploma: "Dipl. Wirtschaftsinformatiker HF", image: team3 },
     { name: "Simon Gemetti", role: "Backend-Entwickler | Senior Systems Engineer", diploma: "Dipl. Wirtschaftsinformatiker HF", image: team4 },
-    { name: "Pascal Aebischer", role: "Systems Engineer | Microsoft Certified Trainer", diploma: "Dipl. Wirtschaftsinformatiker HF", image: team5 },
+    { name: "Pascal Aebischer", role: "Senior Systems Engineer | Microsoft Certified Trainer", diploma: "Dipl. Wirtschaftsinformatiker HF", image: team5 },
     { name: "Boncuk", role: "Chief Happiness Officer 🐱", diploma: "Certified Purring Expert", image: boncuk }, // 🔹 Boncuk als Teammitglied hinzugefügt
   ];
 
@@ -29,6 +29,7 @@ function AboutPage() {
             <li><Link to="/internet">Internet</Link></li>
             <li><Link to="/tv">TV</Link></li>
             <li><Link to="/support">Support</Link></li>
+            <li><Link to="/preisvergleich">Preisvergleich</Link></li> {/* ✅ Jetzt mit Preisvergleich */}
             <li><Link to="/about">Über uns</Link></li>
             <li><Link to="/login">Anmelden</Link></li>
           </ul>
@@ -66,6 +67,18 @@ function AboutPage() {
           </div>
         </section>
       </main>
+
+      {/* ✅ Preisvergleich bleibt auch in "Über uns" sichtbar */}
+      <section className="preisvergleich-intro">
+        <div className="preisvergleich-box">
+          <h1>💰 Sparen mit TechCom – Der beste Preis in der Schweiz! 🚀</h1>
+          <p>
+            Warum mehr bezahlen? **TechCom** bietet Ihnen die **gleiche Leistung** wie große Anbieter – **aber günstiger!** 
+            Unsere Preise sind dauerhaft fair und transparent. Sehen Sie selbst, wie TechCom im Vergleich zur Konkurrenz abschneidet.
+          </p>
+          <p>🔍 **Nutzen Sie unseren interaktiven Preisvergleich und sparen Sie bares Geld!**</p>
+        </div>
+      </section>
 
       <footer>
         <p>&copy; 2025 TechCom - Alle Rechte vorbehalten</p>

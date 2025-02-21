@@ -139,10 +139,10 @@ main {
   margin: 0 auto;
 }
 
-/* Home-Karten */
+/* 🔹 Home-Karten (angepasst an Internet-Karten) */
 .home-card {
   background: white;
-  padding: 30px;
+  padding: 30px; /* 🔹 Gleicher Wert wie .internet-card */
   border-radius: 15px;
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
   text-align: left;
@@ -156,9 +156,22 @@ main {
   overflow: hidden;
 }
 
+/* 🔹 Hover-Effekt (gleich wie bei Internet-Karten) */
 .home-card:hover {
   transform: scale(1.05);
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* 🔹 Weniger Abstand zwischen den Textblöcken */
+.home-card p {
+  margin-top: 4px;
+  margin-bottom: 4px;
+  line-height: 1.4;
+}
+
+/* 🔹 Einheitliche Zwischenüberschriften */
+.home-card p strong {
+  margin-bottom: 3px;
 }
 
 /* 🔹 Adressprüfung - modernes Design */
@@ -945,8 +958,9 @@ main {
   align-items: center;
   justify-content: center;
 }
+/* Über uns Ende */
 
-/* Pop-up Megan Fox */
+/* 🔹 Pop-up Megan-Fox */
 .support-popup {
   position: fixed;
   bottom: 20px;
@@ -957,36 +971,53 @@ main {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   display: flex;
   flex-direction: column;
-  align-items: center;
   border: 1px solid #ddd;
-  animation: fadeIn 0.5s ease-in-out;
-  width: 450px;
+  width: 350px;
   max-width: 90%;
+  z-index: 999;
+  transition: transform 0.3s ease-in-out;
 }
 
-/* Avatar mit Farbverlauf */
+.support-popup.minimized {
+  height: 50px;
+  overflow: hidden;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* 🔹 Avatar mit quadratischem Bild und farbigem Rahmen */
 .support-avatar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
+
+.avatar-border {
   padding: 5px;
   background: linear-gradient(to right, #0072ff, #9333ea);
   display: inline-block;
-  border-radius: 12px;
+  border-radius: 12px; /* 🔹 Quadratisch mit leicht abgerundeten Ecken */
 }
 
-.support-avatar img {
-  width: 180px;
-  height: auto;
-  border-radius: 10px;
-  display: block;
+.avatar-border img {
+  width: 160px; /* 🔹 Bild größer gemacht */
+  height: 160px;
+  border-radius: 8px; /* 🔹 Keine runde Form mehr, leicht abgerundet */
   border: 3px solid white;
+  display: block;
 }
 
-/* Text */
+/* 🔹 Textbereich */
 .support-text {
-  margin-top: 15px;
+  margin-top: 10px;
   text-align: center;
+  font-size: 14px;
 }
 
-/* Chatbereich */
+/* 🔹 Chat */
 .chat-container {
   margin-top: 10px;
   width: 100%;
@@ -1004,6 +1035,7 @@ main {
 .chat-input {
   display: flex;
   gap: 10px;
+  width: 100%;
 }
 
 .chat-input input {
@@ -1022,9 +1054,35 @@ main {
   cursor: pointer;
 }
 
-.chat-input button:hover {
-  background: #0059d4;
+/* 🔹 Header für Minimierung */
+.popup-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
 }
+
+.minimize-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* 🔹 Header für Minimierung */
+.popup-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.minimize-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+/* 🔹 Pop-up Megan-Fox Ende */
+
 /* 🔹 Preisvergleichs-Tabelle */
 .pricing-section {
   text-align: center;
@@ -1036,13 +1094,17 @@ main {
   max-width: 800px;
   margin: auto;
   border-collapse: collapse;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.15);
 }
 
 .pricing-table th, .pricing-table td {
   border: 1px solid #ddd;
   padding: 12px;
   text-align: center;
+  font-size: 16px;
+  transition: background 0.3s ease;
 }
 
 .pricing-table th {
@@ -1051,14 +1113,91 @@ main {
 }
 
 .techcom-row {
-  background-color: #e3f2fd; /* Blau für TechCom */
+  background: linear-gradient(135deg, #007bff 10%, #00c6ff 90%);
+  color: white;
+  font-weight: bold;
 }
 
 .swisscom-row {
-  background-color: #fdecea; /* Rot für Swisscom */
+  background: linear-gradient(135deg, #ff6b6b 10%, #ff3e3e 90%);
+  color: white;
+  font-weight: bold;
 }
 
 .pricing-table td strong {
   font-size: 1.2em;
   color: #28a745;
 }
+
+/* 🔹 Hover-Effekt für Tabelle */
+.pricing-table tr:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+/* 🔹 Preisvergleich Intro-Box */
+.preisvergleich-intro {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 40px 25px;
+  margin-top: 120px; /* ✅ Text wird weiter nach unten verschoben */
+}
+
+/* 🔹 Box für Preisvergleich */
+.preisvergleich-box {
+  max-width: 800px;
+  background: linear-gradient(135deg, #007bff, #9333ea);
+  color: white;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.25);
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
+}
+
+/* 🔹 Überschrift */
+.preisvergleich-box h1 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* 🔹 Absatz */
+.preisvergleich-box p {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #f8f8f8;
+}
+
+/* 🔹 Diagramm-Optimierung */
+.pricing-chart {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.pricing-chart h2 {
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.pricing-chart p {
+  font-size: 16px;
+  color: #555;
+}
+
+/* 🔹 Aktive Navigation */
+nav ul li a.active {
+  color: #ffcc00;
+  font-weight: bold;
+}
+
+/* 🔹 Footer */
+footer {
+  text-align: center;
+  padding: 15px;
+  font-size: 14px;
+  color: #666;
+}
+/* 🔹 Preisvergleich Ende */

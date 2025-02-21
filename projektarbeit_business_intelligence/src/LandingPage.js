@@ -1,20 +1,19 @@
 import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from "recharts";
 import meganFox from "./images/megan-fox.png";
 import "./styles.css";
 
 function LandingPage() {
   const [address, setAddress] = useState("");
   const [showPopup, setShowPopup] = useState(false);
+  const [isMinimized, setIsMinimized] = useState(false);
   const [message, setMessage] = useState("");
   const [chat, setChat] = useState([]);
 
   useEffect(() => {
-    // Nach 3 Sekunden das Popup anzeigen
     const timer = setTimeout(() => {
       setShowPopup(true);
-    }, 3000);
+    }, 6000);
 
     return () => clearTimeout(timer);
   }, []);
@@ -23,9 +22,9 @@ function LandingPage() {
     setAddress(e.target.value);
   };
 
-  const sendMessage = () => {
-    if (message.trim() !== "") {
-      setChat([...chat, { user: "Du", text: message }]);
+  const handleSendMessage = () => {
+    if (message.trim()) {
+      setChat([...chat, message]);
       setMessage("");
     }
   };
@@ -60,42 +59,29 @@ function LandingPage() {
     }
   ];
 
-  // 💡 Dummy-Daten für den Chart
-  const dummyData = [
-    { name: "Tag 1", TechCom: 39.90, Swisscom: 49.90 },
-    { name: "Tag 2", TechCom: 41.00, Swisscom: 50.00 },
-    { name: "Tag 3", TechCom: 38.50, Swisscom: 48.50 },
-    { name: "Tag 4", TechCom: 40.00, Swisscom: 51.00 },
-    { name: "Tag 5", TechCom: 42.00, Swisscom: 49.00 },
-  ];
-
   return (
     <div>
-      {/* 🔹 Navigation */}
       <header>
         <nav>
           <ul>
-            <li><NavLink to="/" end className={({ isActive }) => (isActive ? "active" : "")}>Home</NavLink></li>
-            <li><NavLink to="/internet" className={({ isActive }) => (isActive ? "active" : "")}>Internet</NavLink></li>
-            <li><NavLink to="/tv" className={({ isActive }) => (isActive ? "active" : "")}>TV</NavLink></li>
-            <li><NavLink to="/support" className={({ isActive }) => (isActive ? "active" : "")}>Support</NavLink></li>
-            <li><NavLink to="/about" className={({ isActive }) => (isActive ? "active" : "")}>Über uns</NavLink></li>
-            <li><NavLink to="/login" className={({ isActive }) => (isActive ? "active" : "")}>Anmelden</NavLink></li>
+            <li><NavLink to="/" end>Home</NavLink></li>
+            <li><NavLink to="/internet">Internet</NavLink></li>
+            <li><NavLink to="/tv">TV</NavLink></li>
+            <li><NavLink to="/support">Support</NavLink></li>
+            <li><NavLink to="/preisvergleich">Preisvergleich</NavLink></li>
+            <li><NavLink to="/about">Über uns</NavLink></li>
+            <li><NavLink to="/login">Anmelden</NavLink></li>
           </ul>
         </nav>
       </header>
 
-      {/* 🔹 Hauptbereich */}
       <main>
         <section className="hero">
           <h1>TechCom Internet-Abos</h1>
           <p>Schnelles Glasfaser-Internet mit gratis Router & Surf-Schutz.</p>
-          <p className="promo">🎁 <strong>Jetzt alle Abos nur 59.90 CHF/Monat.</strong></p>
-          <p className="sustainability">🌱 <strong>TechCom setzt auf nachhaltige Technologien für eine grünere Zukunft.</strong></p>
           <div className="address-check">
             <input 
               type="text" 
-              id="address" 
               placeholder="Strasse, Ort oder PLZ eingeben" 
               value={address} 
               onChange={handleAddressChange}
@@ -104,27 +90,23 @@ function LandingPage() {
           </div>
         </section>
 
-        <section className="company-info">
-          <h2>Über TechCom</h2>
-          <p>TechCom bietet Glasfaser-Internet, TV & Mobilfunk in der Schweiz.</p>
-          <p><strong>Projektarbeit im Fach Business Intelligence</strong></p>
-        </section>
-
-        {/* 🔹 Produktübersicht */}
         <section className="home-products">
           {homeProducts.map((product, index) => (
             <div className="home-card" key={index}>
-              <h3 className="home-title">{product.title}</h3>
-              <div className="home-info">
-                <p><strong>Internet-Geschwindigkeit</strong></p>
-                <p>{product.speed}</p>
-                <p><strong>WLAN-Router</strong></p>
-                <p>{product.router}</p>
-                <p><strong>Sicherheit</strong></p>
-                <p>{product.security}</p>
-                <p><strong>Zusatzleistungen</strong></p>
-                <p>{product.extras.join(", ")}</p>
-              </div>
+              <h3>{product.title}</h3>
+
+              <p><strong>Internet-Geschwindigkeit</strong></p>
+              <p>{product.speed}</p>
+
+              <p><strong>WLAN-Router</strong></p>
+              <p>{product.router}</p>
+
+              <p><strong>Sicherheit</strong></p>
+              <p>{product.security}</p>
+
+              <p><strong>Zusatzleistungen</strong></p>
+              <p>{product.extras.join(", ")}</p>
+
               <p className="price">
                 <del>{product.oldPrice}</del> <strong>{product.price}</strong>
               </p>
@@ -134,41 +116,49 @@ function LandingPage() {
         </section>
       </main>
 
-      {/* 🔹 Support Popup mit Megan Fox */}
       {showPopup && (
-        <div className="support-popup">
-          <div className="support-avatar">
-            <img src={meganFox} alt="Support Fee Verkäuferin Megan Fox" />
-          </div>
-          <div className="support-text">
+        <div className={`support-popup ${isMinimized ? "minimized" : ""}`}>
+          <div className="popup-header">
             <h3>Support Fee</h3>
-            <p>„Hey, ich bin Megan! 💖 Hast du gerade nach einem Engel gesucht? Hier bin ich. 😘“</p>
-            <p>Und weisst du was? Ich bin die Frau von Simon Gemetti. 😉🔥</p>
+            <button onClick={() => setIsMinimized(!isMinimized)} className="minimize-btn">
+              {isMinimized ? "🔼" : "🔽"}
+            </button>
+            <button onClick={() => setShowPopup(false)} className="close-btn">✖</button>
           </div>
-          <button onClick={() => setShowPopup(false)} className="close-btn">✖</button>
+
+          {!isMinimized && (
+            <>
+              <div className="support-avatar">
+                <div className="avatar-border">
+                  <img src={meganFox} alt="Support Fee Verkäuferin Megan Fox" />
+                </div>
+              </div>
+              <div className="support-text">
+                <p>„Hey, ich bin Megan! 💖 Hast du Fragen? Ich bin für dich da!“</p>
+                <p>Ich kann dir helfen, das perfekte Abo zu finden. Sag mir einfach, wonach du suchst! 😊</p>
+                <p>Und wusstest du? Mein Mann sagt immer, dass ich die beste Internet-Beratung mache. Also, lass uns loslegen! 🔥</p>
+              </div>
+
+              <div className="chat-container">
+                <div className="chat-messages">
+                  {chat.map((msg, index) => (
+                    <p key={index}>{msg}</p>
+                  ))}
+                </div>
+                <div className="chat-input">
+                  <input 
+                    type="text" 
+                    placeholder="Nachricht eingeben..." 
+                    value={message} 
+                    onChange={(e) => setMessage(e.target.value)}
+                  />
+                  <button onClick={handleSendMessage}>Senden</button>
+                </div>
+              </div>
+            </>
+          )}
         </div>
       )}
-
-      {/* 🔹 Preisdiagramm (Chart) ganz unten */}
-      <section className="pricing-chart">
-        <h2>📈 Preisentwicklung von TechCom & Swisscom</h2>
-        <ResponsiveContainer width="90%" height={300}>
-          <LineChart data={dummyData}>
-            <CartesianGrid strokeDasharray="3 3" />
-            <XAxis dataKey="name" />
-            <YAxis domain={['auto', 'auto']} />
-            <Tooltip />
-            <Legend />
-            <Line type="monotone" dataKey="TechCom" stroke="#007bff" strokeWidth={2} />
-            <Line type="monotone" dataKey="Swisscom" stroke="#dc3545" strokeWidth={2} />
-          </LineChart>
-        </ResponsiveContainer>
-      </section>
-
-      {/* 🔹 Footer */}
-      <footer>
-        <p>&copy; 2025 TechCom - Alle Rechte vorbehalten</p>
-      </footer>
     </div>
   );
 }

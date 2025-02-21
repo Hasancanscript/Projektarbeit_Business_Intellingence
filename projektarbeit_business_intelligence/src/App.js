@@ -7,8 +7,9 @@ import TvPage from "./TvPage";
 import InternetPage from "./InternetPage";
 import OfferPage from "./OfferPage";
 import SupportPage from "./SupportPage";
-import LoginPage from "./LoginPage"; 
-import AboutPage from "./AboutPage"; // ✅ Über uns Seite eingebunden
+import LoginPage from "./LoginPage";
+import AboutPage from "./AboutPage";
+import PreisvergleichPage from "./PreisvergleichPage"; // ✅ Preisvergleich eingebunden
 
 // 🔹 ScrollToTop: Behebt das Problem mit "Anmelden" nach Navigation
 import { useEffect } from "react";
@@ -27,7 +28,7 @@ function ScrollToTop() {
 function App() {
   return (
     <Router>
-      <ScrollToTop /> {/* ✅ Fix für Navigation */}
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<LandingPage />} />
         <Route path="/produkte" element={<ProduktePage />} />
@@ -37,6 +38,7 @@ function App() {
         <Route path="/support" element={<SupportPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/about" element={<AboutPage />} />
+        <Route path="/preisvergleich" element={<PreisvergleichPage />} /> {/* ✅ Neue Preisvergleich-Seite */}
       </Routes>
     </Router>
   );
