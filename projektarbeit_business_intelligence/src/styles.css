@@ -972,19 +972,10 @@ main {
   display: flex;
   flex-direction: column;
   border: 1px solid #ddd;
-  width: 350px;
+  width: 420px; /* 🔹 Pop-up breiter gemacht */
   max-width: 90%;
   z-index: 999;
   transition: transform 0.3s ease-in-out;
-}
-
-.support-popup.minimized {
-  height: 50px;
-  overflow: hidden;
-  padding: 10px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
 }
 
 /* 🔹 Avatar mit quadratischem Bild und farbigem Rahmen */
@@ -999,15 +990,16 @@ main {
   padding: 5px;
   background: linear-gradient(to right, #0072ff, #9333ea);
   display: inline-block;
-  border-radius: 12px; /* 🔹 Quadratisch mit leicht abgerundeten Ecken */
+  border-radius: 10px; /* 🔹 Leicht abgerundete Ecken */
 }
 
 .avatar-border img {
-  width: 160px; /* 🔹 Bild größer gemacht */
+  width: 160px; /* 🔹 Bildgröße bleibt gleich */
   height: 160px;
-  border-radius: 8px; /* 🔹 Keine runde Form mehr, leicht abgerundet */
+  border-radius: 10px; /* 🔹 Quadratisch, aber mit leicht abgerundeten Ecken */
   border: 3px solid white;
   display: block;
+  object-fit: cover; /* 🔹 Damit das Bild nicht verzerrt wird */
 }
 
 /* 🔹 Textbereich */
@@ -1015,6 +1007,7 @@ main {
   margin-top: 10px;
   text-align: center;
   font-size: 14px;
+  padding: 10px;
 }
 
 /* 🔹 Chat */
@@ -1067,21 +1060,6 @@ main {
   border: none;
   cursor: pointer;
 }
-
-/* 🔹 Header für Minimierung */
-.popup-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-}
-
-.minimize-btn {
-  background: none;
-  border: none;
-  cursor: pointer;
-}
-/* 🔹 Pop-up Megan-Fox Ende */
 
 /* 🔹 Preisvergleichs-Tabelle */
 .pricing-section {

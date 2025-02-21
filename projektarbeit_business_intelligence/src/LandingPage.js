@@ -6,14 +6,28 @@ import "./styles.css";
 function LandingPage() {
   const [address, setAddress] = useState("");
   const [showPopup, setShowPopup] = useState(false);
+  const [isMinimized, setIsMinimized] = useState(false);
+  const [message, setMessage] = useState("");
+  const [chat, setChat] = useState([]);
 
-  // Pop-up nach 3 Sekunden anzeigen
   useEffect(() => {
-    const timer = setTimeout(() => setShowPopup(true), 3000);
+    const timer = setTimeout(() => {
+      setShowPopup(true);
+    }, 3000);
+
     return () => clearTimeout(timer);
   }, []);
 
-  const handleAddressChange = (e) => setAddress(e.target.value);
+  const handleAddressChange = (e) => {
+    setAddress(e.target.value);
+  };
+
+  const handleSendMessage = () => {
+    if (message.trim()) {
+      setChat([...chat, message]);
+      setMessage("");
+    }
+  };
 
   const homeProducts = [
     {
@@ -79,17 +93,20 @@ function LandingPage() {
         <section className="home-products">
           {homeProducts.map((product, index) => (
             <div className="home-card" key={index}>
-              <h3 className="home-title">{product.title}</h3>
-              <div className="home-info">
-                <p><strong>Internet-Geschwindigkeit</strong></p>
-                <p>{product.speed}</p>
-                <p><strong>WLAN-Router</strong></p>
-                <p>{product.router}</p>
-                <p><strong>Sicherheit</strong></p>
-                <p>{product.security}</p>
-                <p><strong>Zusatzleistungen</strong></p>
-                <p>{product.extras.join(", ")}</p>
-              </div>
+              <h3>{product.title}</h3>
+
+              <p><strong>Internet-Geschwindigkeit</strong></p>
+              <p>{product.speed}</p>
+
+              <p><strong>WLAN-Router</strong></p>
+              <p>{product.router}</p>
+
+              <p><strong>Sicherheit</strong></p>
+              <p>{product.security}</p>
+
+              <p><strong>Zusatzleistungen</strong></p>
+              <p>{product.extras.join(", ")}</p>
+
               <p className="price">
                 <del>{product.oldPrice}</del> <strong>{product.price}</strong>
               </p>
@@ -100,16 +117,46 @@ function LandingPage() {
       </main>
 
       {showPopup && (
-        <div className="support-popup">
-          <div className="support-avatar">
-            <img src={meganFox} alt="Support Fee Verkäuferin Megan Fox" />
-          </div>
-          <div className="support-text">
+        <div className={`support-popup ${isMinimized ? "minimized" : ""}`}>
+          <div className="popup-header">
             <h3>Support Fee</h3>
-            <p>„Hey, ich bin Megan! 💖 Hast du gerade nach einem Engel gesucht? Hier bin ich. 😘“</p>
-            <p>Und weisst du was? Ich bin die Frau von Simon Gemetti. 😉🔥</p>
+            <button onClick={() => setIsMinimized(!isMinimized)} className="minimize-btn">
+              {isMinimized ? "🔼" : "🔽"}
+            </button>
+            <button onClick={() => setShowPopup(false)} className="close-btn">✖</button>
           </div>
-          <button onClick={() => setShowPopup(false)} className="close-btn">✖</button>
+
+          {!isMinimized && (
+            <>
+              <div className="support-avatar">
+                <div className="avatar-border">
+                  <img src={meganFox} alt="Support Fee Verkäuferin Megan Fox" />
+                </div>
+              </div>
+              <div className="support-text">
+                <p>Hey, ich bin Megan! 💖 Hast du Fragen? Ich bin für dich da!</p>
+                <p>Ich kann dir helfen, das perfekte Abo zu finden. Sag mir einfach, wonach du suchst! 😊</p>
+                <p>Und wusstest du? Mein Mann sagt immer, dass ich die beste Internet-Beratung mache. Also, lass uns loslegen! 🔥</p>
+              </div>
+
+              <div className="chat-container">
+                <div className="chat-messages">
+                  {chat.map((msg, index) => (
+                    <p key={index}>{msg}</p>
+                  ))}
+                </div>
+                <div className="chat-input">
+                  <input 
+                    type="text" 
+                    placeholder="Nachricht eingeben..." 
+                    value={message} 
+                    onChange={(e) => setMessage(e.target.value)}
+                  />
+                  <button onClick={handleSendMessage}>Senden</button>
+                </div>
+              </div>
+            </>
+          )}
         </div>
       )}
     </div>
