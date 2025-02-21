@@ -87,10 +87,13 @@ function TvPage() {
           ))}
         </section>
 
+        {/* 🔹 Streaming-Partner-Bereich mit funktionierendem Button */}
         <section className="streaming-section">
           <h2>🎬 Streaming & Zusatzpakete</h2>
           <p>Erweitern Sie Ihr TV-Erlebnis mit den besten Streaming-Partnern.</p>
-          <button className="streaming-button">➝ Zu den Streaming-Angeboten</button>
+          <Link to="/streaming-partners" className="streaming-button">
+            ➝ Zu den Streaming-Angeboten
+          </Link>
         </section>
       </main>
 

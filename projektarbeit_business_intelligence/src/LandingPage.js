@@ -130,7 +130,7 @@ function LandingPage() {
             <>
               <div className="support-avatar">
                 <div className="avatar-border">
-                  <img src={meganFox} alt="Support Fee Verkäuferin Megan Fox" />
+                  <img src={meganFox} alt="Support Fee Verkäuferin Megan Fox" className="square-avatar" />
                 </div>
               </div>
               <div className="support-text">

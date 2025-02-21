@@ -972,13 +972,69 @@ main {
   display: flex;
   flex-direction: column;
   border: 1px solid #ddd;
-  width: 420px; /* 🔹 Pop-up breiter gemacht */
+  width: 400px;
   max-width: 90%;
   z-index: 999;
-  transition: transform 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 
-/* 🔹 Avatar mit quadratischem Bild und farbigem Rahmen */
+/* 🔹 Minimierter Zustand – FIXED */
+.support-popup.minimized {
+  width: 180px; /* 🔹 Breiter, damit Text lesbar bleibt */
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px 15px;
+  font-size: 14px;
+  font-weight: bold;
+  white-space: nowrap;
+  overflow: hidden;
+  border-radius: 12px;
+  background: white;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  border: 1px solid #ddd;
+}
+
+/* 🔹 Text im minimierten Modus bleibt sichtbar */
+.support-popup.minimized h3 {
+  font-size: 14px;
+  font-weight: bold;
+  margin: 0 auto;
+  text-align: center;
+  color: black;
+}
+
+/* 🔹 Minimierungs- und Schließen-Button – FIXED */
+.popup-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 5px;
+}
+
+.minimize-btn {
+  background: none;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  position: absolute;
+  top: 10px;
+  right: 35px; /* 🔹 Platzierung FIXED */
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+/* 🔹 Avatar bleibt quadratisch & mit Rahmen */
 .support-avatar {
   display: flex;
   justify-content: center;
@@ -986,20 +1042,23 @@ main {
   padding: 10px;
 }
 
+/* 🔹 Rahmen direkt am Bild */
 .avatar-border {
-  padding: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background: linear-gradient(to right, #0072ff, #9333ea);
-  display: inline-block;
-  border-radius: 10px; /* 🔹 Leicht abgerundete Ecken */
+  padding: 5px;
+  border-radius: 8px;
 }
 
-.avatar-border img {
-  width: 160px; /* 🔹 Bildgröße bleibt gleich */
-  height: 160px;
-  border-radius: 10px; /* 🔹 Quadratisch, aber mit leicht abgerundeten Ecken */
-  border: 3px solid white;
-  display: block;
-  object-fit: cover; /* 🔹 Damit das Bild nicht verzerrt wird */
+/* 🔹 Bild bleibt quadratisch */
+.square-avatar {
+  width: 150px;
+  height: 150px;
+  border-radius: 0px !important;
+  border: 5px solid white;
+  object-fit: cover;
 }
 
 /* 🔹 Textbereich */
@@ -1038,28 +1097,16 @@ main {
   border-radius: 6px;
 }
 
+/* 🔹 Blauer "Senden"-Button */
 .chat-input button {
-  background: #0072ff;
-  color: white;
+  background: #0072ff !important;
+  color: white !important;
   padding: 8px 12px;
   border: none;
   border-radius: 6px;
   cursor: pointer;
 }
-
-/* 🔹 Header für Minimierung */
-.popup-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-}
-
-.minimize-btn {
-  background: none;
-  border: none;
-  cursor: pointer;
-}
+/* 🔹 Pop-up Megan-Fox Ende*/
 
 /* 🔹 Preisvergleichs-Tabelle */
 .pricing-section {
@@ -1269,3 +1316,62 @@ footer {
   color: #666;
 }
 /* 🔹 Preisvergleich Ende */
+
+/* 🔹 Videos nebeneinander anzeigen */
+.video-section {
+  display: flex;
+  justify-content: center;
+  gap: 30px; /* Abstand zwischen den Karten */
+  flex-wrap: wrap; /* 🔹 Falls der Bildschirm zu klein ist, umbricht es */
+}
+
+/* 🔹 Video-Karten */
+.video-card {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  width: 500px; /* 🔹 Breitere Karten */
+  height: 450px; /* 🔹 Mehr Platz für Videos */
+}
+
+/* 🔹 Rahmen für Videos */
+.video-border {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 6px;
+  background: linear-gradient(to right, #0072ff, #9333ea); /* 🔹 Farbverlauf */
+  border-radius: 12px;
+}
+
+/* 🔹 Videos größer & mit abgerundeten Ecken */
+.video-card video {
+  width: 100%;
+  height: 360px;
+  border-radius: 8px;
+  outline: none;
+  display: block;
+}
+
+/* 🔹 Mobile Ansicht: Videos untereinander */
+@media (max-width: 1200px) {
+  .video-section {
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap; /* 🔹 Videos umbrechen, wenn Bildschirm klein ist */
+  }
+
+  .video-card {
+    width: 90%; /* 🔹 Breite anpassen für kleine Bildschirme */
+    height: auto;
+  }
+
+  .video-card video {
+    height: auto;
+  }
+}
+
+
