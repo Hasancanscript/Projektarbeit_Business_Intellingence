@@ -278,66 +278,6 @@ main {
   }
 }
 
-/* FAQ-Bereich */
-.faq {
-  margin: 50px auto;
-  width: 80%;
-  max-width: 800px;
-  text-align: left;
-}
-
-.faq h2 {
-  text-align: center;
-  font-size: 24px;
-  font-weight: bold;
-  color: #004080;
-}
-
-.faq-container {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.faq-item {
-  background: white;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  padding: 15px;
-  border: 1px solid #ccc;
-  transition: all 0.3s ease;
-}
-
-.faq-item:hover {
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-}
-
-.faq-question {
-  width: 100%;
-  border: none;
-  background: none;
-  font-size: 16px;
-  font-weight: bold;
-  text-align: left;
-  cursor: pointer;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px;
-  color: #004080;
-}
-
-.faq-answer {
-  margin-top: 10px;
-  font-size: 14px;
-  color: #555;
-  display: none;
-}
-
-.faq-item.open .faq-answer {
-  display: block;
-}
-
 /* Hotline-Bereich */
 .hotline {
   display: flex;
@@ -958,6 +898,18 @@ main {
   align-items: center;
   justify-content: center;
 }
+
+/* CEO-Sektion */
+.ceo-section {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.ceo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 /* Über uns Ende */
 
 /* 🔹 Pop-up Megan-Fox */
@@ -976,36 +928,56 @@ main {
   max-width: 90%;
   z-index: 999;
   transition: all 0.3s ease-in-out;
+  cursor: pointer;
 }
 
-/* 🔹 Minimierter Zustand – FIXED */
+/* 🔹 Minimierter Zustand – Zeigt nur das Chat-Symbol + "Support" */
 .support-popup.minimized {
-  width: 180px; /* 🔹 Breiter, damit Text lesbar bleibt */
+  width: auto;
+  min-width: 160px; /* 🔹 Breiter für bessere Lesbarkeit */
   height: 50px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   padding: 5px 15px;
-  font-size: 14px;
+  font-size: 16px; /* 🔹 Schriftgröße vergrößert */
   font-weight: bold;
   white-space: nowrap;
   overflow: hidden;
+  text-overflow: ellipsis;
   border-radius: 12px;
   background: white;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   border: 1px solid #ddd;
+  cursor: pointer;
+  gap: 12px; /* 🔹 Mehr Abstand zwischen Symbol & Text */
 }
 
-/* 🔹 Text im minimierten Modus bleibt sichtbar */
-.support-popup.minimized h3 {
-  font-size: 14px;
-  font-weight: bold;
-  margin: 0 auto;
-  text-align: center;
-  color: black;
+/* 🔹 Symbol & Text perfekt mittig & größer */
+.support-popup.minimized span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px; /* 🔹 Größere Schrift */
+  gap: 10px;
 }
 
-/* 🔹 Minimierungs- und Schließen-Button – FIXED */
+/* 🔹 Chat-Symbol größer */
+.support-popup.minimized span svg {
+  width: 24px; /* 🔹 Symbol vergrößert */
+  height: 24px;
+}
+
+/* 🔹 Versteckt alle anderen Inhalte beim Minimieren */
+.support-popup.minimized .popup-header h3,
+.support-popup.minimized .close-btn,
+.support-popup.minimized .support-avatar,
+.support-popup.minimized .support-text,
+.support-popup.minimized .chat-container {
+  display: none;
+}
+
+/* 🔹 Minimierungs- & Schließen-Button */
 .popup-header {
   display: flex;
   justify-content: space-between;
@@ -1020,8 +992,8 @@ main {
   font-size: 16px;
   cursor: pointer;
   position: absolute;
-  top: 10px;
-  right: 35px; /* 🔹 Platzierung FIXED */
+  top: 8px;
+  right: 40px;
 }
 
 .close-btn {
@@ -1030,7 +1002,7 @@ main {
   font-size: 18px;
   cursor: pointer;
   position: absolute;
-  top: 10px;
+  top: 8px;
   right: 10px;
 }
 
@@ -1099,14 +1071,14 @@ main {
 
 /* 🔹 Blauer "Senden"-Button */
 .chat-input button {
-  background: #0072ff !important;
-  color: white !important;
+  background: #0072ff;
+  color: white;
   padding: 8px 12px;
   border: none;
   border-radius: 6px;
   cursor: pointer;
 }
-/* 🔹 Pop-up Megan-Fox Ende*/
+/* 🔹 Pop-up Megan-Fox Ende */
 
 /* 🔹 Preisvergleichs-Tabelle */
 .pricing-section {
@@ -1256,7 +1228,37 @@ main {
   align-items: center;
   text-align: center;
   padding: 40px 25px;
-  margin-top: 120px; /* ✅ Text wird weiter nach unten verschoben */
+  margin-top: 100px; /* 🔹 Text etwas nach unten verschoben */
+}
+
+/* 🔹 Preisvergleich Intro-Box */
+.preisvergleich-intro {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 40px 25px;
+  margin-top: 100px; /* 🔹 Text etwas nach unten verschoben */
+}
+
+/* 🔹 Preisvergleich Intro-Box */
+.preisvergleich-intro {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 40px 25px;
+  margin-top: 100px; /* 🔹 Text etwas nach unten verschoben */
+}
+
+/* 🔹 Preisvergleich Intro-Box */
+.preisvergleich-intro {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 40px 25px;
+  margin-top: 100px; /* 🔹 Text etwas nach unten verschoben */
 }
 
 /* 🔹 Box für Preisvergleich */
@@ -1264,10 +1266,17 @@ main {
   max-width: 800px;
   background: linear-gradient(135deg, #007bff, #9333ea);
   color: white;
-  padding: 25px;
+  padding: 30px;
   border-radius: 12px;
-  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.25);
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+/* 🔹 Hover-Effekt für die Box */
+.preisvergleich-box:hover {
+  transform: scale(1.02);
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.4);
 }
 
 /* 🔹 Überschrift */
@@ -1276,6 +1285,17 @@ main {
   font-weight: bold;
   margin-bottom: 10px;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  animation: glow 1.5s infinite alternate;
+}
+
+/* 🔹 Glüh-Effekt für die Überschrift */
+@keyframes glow {
+  from {
+    text-shadow: 0px 0px 5px rgba(255, 255, 255, 0.4);
+  }
+  to {
+    text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.8);
+  }
 }
 
 /* 🔹 Absatz */
@@ -1285,27 +1305,47 @@ main {
   color: #f8f8f8;
 }
 
-/* 🔹 Diagramm-Optimierung */
+/* 🔹 Diagramm-Optimierung mit mittig platziertem CHF-Label */
 .pricing-chart {
   text-align: center;
-  margin-top: 20px;
+  margin-top: 30px;
+  position: relative;
 }
 
-.pricing-chart h2 {
-  font-size: 22px;
+/* 🔹 Anpassung des CHF-Labels für die Y-Achse */
+.recharts-y-axis .recharts-label {
+  font-size: 14px;
   font-weight: bold;
-  margin-bottom: 10px;
+  fill: #333; /* 🔹 Dunklere Farbe für bessere Sichtbarkeit */
+  text-anchor: middle;
+  transform: translate(-30px, 0); /* 🔹 Verschiebt "CHF" mittig zur Y-Achse */
 }
 
-.pricing-chart p {
-  font-size: 16px;
-  color: #555;
+/* 🔹 Tooltip-Styling für das Diagramm */
+.custom-tooltip {
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 10px;
+  border-radius: 8px;
+  font-size: 14px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+  transition: all 0.2s ease-in-out;
+}
+
+.custom-tooltip p {
+  margin: 5px 0;
+}
+
+/* 🔹 Styling für die Linien im Graph */
+.recharts-line {
+  stroke-width: 3;
 }
 
 /* 🔹 Aktive Navigation */
 nav ul li a.active {
   color: #ffcc00;
   font-weight: bold;
+  text-decoration: underline;
 }
 
 /* 🔹 Footer */
@@ -1315,7 +1355,6 @@ footer {
   font-size: 14px;
   color: #666;
 }
-/* 🔹 Preisvergleich Ende */
 
 /* 🔹 Videos nebeneinander anzeigen */
 .video-section {
@@ -1347,7 +1386,7 @@ footer {
   border-radius: 12px;
 }
 
-/* 🔹 Videos größer & mit abgerundeten Ecken */
+/* 🔹 Videos grösser & mit abgerundeten Ecken */
 .video-card video {
   width: 100%;
   height: 360px;
@@ -1372,4 +1411,165 @@ footer {
   .video-card video {
     height: auto;
   }
+}
+/* 🔹 Videos Ende */
+
+/* 🔹 Einheitliche Produktkarten */
+.product-card {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  width: 350px; /* Einheitliche Breite */
+  height: 520px; /* Einheitliche Höhe */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* Startet alle Inhalte von oben */
+  align-items: center;
+  margin: 10px;
+  transition: transform 0.2s ease-in-out;
+}
+
+/* 🔹 Hover-Effekt für bessere Darstellung */
+.product-card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
+}
+
+/* 🔹 Produkt-Grid für gleichmässige Anordnung */
+.product-grid {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+/* 🔹 Logo-Bilder gross & mittig */
+.product-logo {
+  width: 180px;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+/* 🔹 Textbereich gleichmässig verteilen */
+.product-content {
+  flex-grow: 1; /* Dehnt den Inhalt aus, damit Preis & Button gleich platziert sind */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Zentriert den Inhalt */
+}
+
+/* 🔹 Wichtige Highlights hervorheben */
+.highlight {
+  font-size: 14px;
+  color: #d9534f;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+/* 🔹 Preis fett & exakt gleich platziert */
+.product-card .price {
+  font-size: 18px;
+  font-weight: bold;
+  color: #222;
+  margin-top: auto; /* Erzwingt gleiche Platzierung */
+  padding-bottom: 10px;
+  min-height: 40px; /* Stellt sicher, dass alle Preise gleich hoch sind */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+/* Streaming & Zusatzpakete */
+.streaming-section {
+  text-align: center;
+  background: #f9f9f9; /* Heller Hintergrund */
+  padding: 40px 20px;
+  border-radius: 12px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  margin-top: 40px;
+}
+
+.streaming-section h2 {
+  font-size: 22px;
+  font-weight: bold;
+  color: #222;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.streaming-section h2::before {
+  content: "🎬"; /* Icon vor Titel */
+  font-size: 24px;
+  margin-right: 8px;
+}
+
+.streaming-section p {
+  font-size: 16px;
+  color: #555;
+  margin-bottom: 15px;
+}
+
+/* Button-Stil */
+.streaming-button {
+  display: inline-block;
+  padding: 12px 18px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+  background: linear-gradient(to right, #0072ff, #9333ea); /* Blaulila Farbverlauf */
+  border-radius: 8px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.streaming-button:hover {
+  background: linear-gradient(to right, #005bb5, #6a21a5); /* Dunklere Version */
+  transform: scale(1.05);
+}
+
+/* FAQ-Bereich */
+.faq-section {
+  max-width: 800px;
+  margin: 50px auto;
+  text-align: center;
+}
+
+.faq-container {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+}
+
+.faq-item {
+  border-bottom: 1px solid #ddd;
+}
+
+.faq-item:last-child {
+  border-bottom: none;
+}
+
+.faq-question {
+  width: 100%;
+  padding: 15px;
+  text-align: left;
+  background: none;
+  border: none;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.faq-answer {
+  padding: 15px;
+  font-size: 16px;
+  text-align: left;
+  color: #555;
+  line-height: 1.5;
 }

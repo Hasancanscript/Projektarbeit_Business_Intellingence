@@ -1,8 +1,37 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import "./styles.css";
+import "./styles.css"; // ✅ Stelle sicher, dass styles.css im selben Ordner existiert
 
 function TvPage() {
+  const [openQuestion, setOpenQuestion] = useState(null);
+
+  const toggleQuestion = (index) => {
+    setOpenQuestion(openQuestion === index ? null : index);
+  };
+
+  const faqs = [
+    {
+      question: "Welche TV-Abos bietet TechCom?",
+      answer: "TechCom bietet flexible TV-Abos mit über 330 Sendern in HD/UHD, 7 Tage Replay, Aufnahmen und Streaming-Apps wie Netflix und Disney+."
+    },
+    {
+      question: "Kann ich TechCom TV auf mehreren Geräten nutzen?",
+      answer: "Ja! Unsere TV-Abos ermöglichen Streaming auf bis zu 5 Geräten gleichzeitig, einschliesslich Smart-TVs, Smartphones und Tablets."
+    },
+    {
+      question: "Welche Zusatzpakete gibt es für TechCom TV?",
+      answer: "Neben Standard-TV-Abos bieten wir Premium-Pakete wie Sky Sport, Netflix, Disney+ und spezielle Sender für Filme, Sport und internationale Inhalte."
+    },
+    {
+      question: "Wie funktioniert 7 Tage Replay?",
+      answer: "Mit 7 Tage Replay können Sie Sendungen bis zu einer Woche nach der Ausstrahlung jederzeit ansehen oder pausieren, vor- und zurückspulen."
+    },
+    {
+      question: "Wie kann ich mein TechCom TV-Abo kündigen oder upgraden?",
+      answer: "Sie können Ihr TV-Abo jederzeit online in Ihrem Kundenbereich verwalten, upgraden oder kündigen – ganz flexibel ohne lange Vertragslaufzeit."
+    }
+  ];
+
   const tvProducts = [
     {
       title: "📡 TechCom TV S",
@@ -38,6 +67,7 @@ function TvPage() {
 
   return (
     <div>
+      {/* 🔹 Navigationsbereich */}
       <header>
         <nav>
           <ul>
@@ -45,13 +75,14 @@ function TvPage() {
             <li><Link to="/internet">Internet</Link></li>
             <li><Link to="/tv">TV</Link></li>
             <li><Link to="/support">Support</Link></li>
-            <li><Link to="/preisvergleich">Preisvergleich</Link></li> {/* ✅ Neu hinzugefügt */}
+            <li><Link to="/preisvergleich">Preisvergleich</Link></li>
             <li><Link to="/about">Über uns</Link></li>
             <li><Link to="/login">Anmelden</Link></li>
           </ul>
         </nav>
       </header>
 
+      {/* 🔹 Hauptinhalt */}
       <main>
         <section className="hero">
           <h1>📺 Erleben Sie Fernsehen in bester Qualität</h1>
@@ -89,14 +120,31 @@ function TvPage() {
 
         {/* 🔹 Streaming-Partner-Bereich mit funktionierendem Button */}
         <section className="streaming-section">
-          <h2>🎬 Streaming & Zusatzpakete</h2>
+          <h2> Streaming & Zusatzpakete</h2>
           <p>Erweitern Sie Ihr TV-Erlebnis mit den besten Streaming-Partnern.</p>
-          <Link to="/streaming-partners" className="streaming-button">
+          <Link to="/streaming" className="streaming-button">
             ➝ Zu den Streaming-Angeboten
           </Link>
         </section>
+
+        {/* 🔹 Häufige Fragen Sektion */}
+        <section className="faq-section">
+          <h2>❓ Häufige Fragen</h2>
+          <div className="faq-container">
+            {faqs.map((faq, index) => (
+              <div key={index} className="faq-item">
+                <button className="faq-question" onClick={() => toggleQuestion(index)}>
+                  {faq.question}
+                  <span className="faq-icon">{openQuestion === index ? "▲" : "▼"}</span>
+                </button>
+                {openQuestion === index && <p className="faq-answer">{faq.answer}</p>}
+              </div>
+            ))}
+          </div>
+        </section>
       </main>
 
+      {/* 🔹 Footer */}
       <footer>
         <p>&copy; 2025 TechCom - Alle Rechte vorbehalten</p>
       </footer>
