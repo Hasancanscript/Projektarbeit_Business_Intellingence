@@ -46,6 +46,7 @@ nav ul li a:hover {
   text-decoration: underline;
   color: #ffcc00;
 }
+/* Navigation Ende */
 
 /* Hauptbereich */
 main {
@@ -96,6 +97,7 @@ main {
   transform: scale(1.05);
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
 }
+/* 🔹 TV-Produkte Ende */
 
 /* 🔹 Internet-Produkte */
 .internet-products {
@@ -128,6 +130,7 @@ main {
   transform: scale(1.05);
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
 }
+/* 🔹 Internet-Produkte Ende */
 
 /* 🔹 Home-Produkte */
 .home-products {
@@ -224,6 +227,7 @@ main {
   background-color: #004080;
   transform: scale(1.05);
 }
+/* 🔹 Home-Produkte Ende */
 
 /* Preisgestaltung */
 .price {
@@ -239,6 +243,7 @@ main {
   font-size: 1em;
   margin-right: 5px;
 }
+/* Preisgestaltung Ende */
 
 /* Abo wählen Button */
 .subscribe-btn {
@@ -537,9 +542,7 @@ main {
   transform: scale(1.05);
 }
 
-/* ---------------------- */
 /* 🔹 Angebotsbereich für OfferPage */
-/* ---------------------- */
 .offer-container {
   display: flex;
   justify-content: space-between;
@@ -647,9 +650,7 @@ main {
   transform: scale(1.05);
 }
 
-/* ---------------------- */
 /* 🔹 Responsive Design */
-/* ---------------------- */
 @media (max-width: 1024px) {
   .offer-container {
     flex-direction: column;
@@ -940,7 +941,7 @@ main {
   align-items: center;
   justify-content: center;
   padding: 5px 15px;
-  font-size: 16px; /* 🔹 Schriftgröße vergrößert */
+  font-size: 16px; /* 🔹 Schriftgrösse vergrössert */
   font-weight: bold;
   white-space: nowrap;
   overflow: hidden;
@@ -953,18 +954,18 @@ main {
   gap: 12px; /* 🔹 Mehr Abstand zwischen Symbol & Text */
 }
 
-/* 🔹 Symbol & Text perfekt mittig & größer */
+/* 🔹 Symbol & Text perfekt mittig & grösser */
 .support-popup.minimized span {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 18px; /* 🔹 Größere Schrift */
+  font-size: 18px; /* 🔹 Grössere Schrift */
   gap: 10px;
 }
 
-/* 🔹 Chat-Symbol größer */
+/* 🔹 Chat-Symbol grösser */
 .support-popup.minimized span svg {
-  width: 24px; /* 🔹 Symbol vergrößert */
+  width: 24px; /* 🔹 Symbol vergrössert */
   height: 24px;
 }
 
@@ -977,7 +978,7 @@ main {
   display: none;
 }
 
-/* 🔹 Minimierungs- & Schließen-Button */
+/* 🔹 Minimierungs- & Schliessen-Button */
 .popup-header {
   display: flex;
   justify-content: space-between;
@@ -1121,124 +1122,9 @@ main {
   font-weight: bold;
 }
 
-.pricing-table td strong {
-  font-size: 1.2em;
-  color: #28a745;
-}
-.support-popup {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background: white;
-  border: 2px solid #ff4081;
-  border-radius: 10px;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-  padding: 10px;
-  width: 250px;
-  transition: all 0.3s ease-in-out;
-}
-
-.support-popup.minimized {
-  width: 50px;
-  height: 50px;
-  overflow: hidden;
-  padding: 5px;
-}
-
-.support-header {
-  display: flex;
-  justify-content: flex-end;
-}
-
-.toggle-btn {
-  background: transparent;
-  border: none;
-  font-size: 20px;
-  cursor: pointer;
-}
-
-.close-btn {
-  background: transparent;
-  border: none;
-  font-size: 18px;
-  cursor: pointer;
-  position: absolute;
-  top: 5px;
-  right: 5px;
-}
-
-.support-avatar img {
-  width: 100%;
-  border-radius: 50%;
-}
-
-.support-text {
-  text-align: center;
-}
-.chat-box {
-  display: flex;
-  flex-direction: column;
-  margin-top: 10px;
-}
-
-.chat-messages {
-  max-height: 150px;
-  overflow-y: auto;
-  border: 1px solid #ccc;
-  padding: 5px;
-  background: #f9f9f9;
-  border-radius: 5px;
-}
-
-.chat-message {
-  margin: 5px 0;
-  padding: 5px;
-  border-radius: 5px;
-}
-
-.user-message {
-  background: #d1e7fd;
-  align-self: flex-end;
-}
-
-.bot-message {
-  background: #fce4ec;
-  align-self: flex-start;
-}
-
-.send-btn {
-  margin-top: 5px;
-  background: #ff4081;
-  color: white;
-  border: none;
-  padding: 5px;
-  cursor: pointer;
-  border-radius: 5px;
-}
-
 /* 🔹 Hover-Effekt für Tabelle */
 .pricing-table tr:hover {
   background-color: rgba(0, 0, 0, 0.05);
-}
-
-/* 🔹 Preisvergleich Intro-Box */
-.preisvergleich-intro {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding: 40px 25px;
-  margin-top: 100px; /* 🔹 Text etwas nach unten verschoben */
-}
-
-/* 🔹 Preisvergleich Intro-Box */
-.preisvergleich-intro {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding: 40px 25px;
-  margin-top: 100px; /* 🔹 Text etwas nach unten verschoben */
 }
 
 /* 🔹 Preisvergleich Intro-Box */
@@ -1573,3 +1459,4 @@ footer {
   color: #555;
   line-height: 1.5;
 }
+/* FAQ-Bereich Ende */
