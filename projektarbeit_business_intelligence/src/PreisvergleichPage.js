@@ -1,27 +1,61 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from "recharts";
 import "./styles.css";
 
 function PreisvergleichPage() {
-  const [preisData, setPreisData] = useState([]);
+  const preisData = [
+    { 
+      name: "August 2024", TechCom: 39.90, Swisscom: 49.90,
+      TechComProduct: "TechCom Connect S 100 Mbit/s", 
+      SwisscomProduct: "Swisscom blue Internet S 100 Mbit/s"
+    },
+    { 
+      name: "September 2024", TechCom: 39.90, Swisscom: 59.90,
+      TechComProduct: "TechCom Connect S 100 Mbit/s", 
+      SwisscomProduct: "Swisscom blue Internet M 1 Gbit/s"
+    },
+    { 
+      name: "Oktober 2024", TechCom: 49.90, Swisscom: 39.90,
+      TechComProduct: "TechCom Connect M 1 Gbit/s", 
+      SwisscomProduct: "Swisscom blue Internet M 1 Gbit/s"
+    },
+    { 
+      name: "November 2024", TechCom: 59.90, Swisscom: 89.90,
+      TechComProduct: "TechCom Connect L 10 Gbit/s", 
+      SwisscomProduct: "Swisscom blue Internet L 10 Gbit/s"
+    },
+    { 
+      name: "Dezember 2024", TechCom: 59.90, Swisscom: 39.90,
+      TechComProduct: "TechCom Connect L 10 Gbit/s", 
+      SwisscomProduct: "Swisscom blue Internet L 10 Gbit/s"
+    },
+    { 
+      name: "Januar 2025", TechCom: 49.90, Swisscom: 79.90,
+      TechComProduct: "TechCom Connect M 1 Gbit/s", 
+      SwisscomProduct: "Swisscom blue Internet M 1 Gbit/s"
+    },
+    { 
+      name: "Februar 2025", TechCom: 59.90, Swisscom: 49.90,
+      TechComProduct: "TechCom Connect S 100 Mbit/s", 
+      SwisscomProduct: "Swisscom blue Internet S 100 Mbit/s"
+    }
+  ];
 
-  useEffect(() => {
-    // 📌 Preiswerte aus der Excel-Tabelle statisch setzen
-    const fixedPrices = [
-      { name: "Tag 1", TechCom: 47.2, Swisscom: 45.5 },
-      { name: "Tag 2", TechCom: 54, Swisscom: 52 },
-      { name: "Tag 3", TechCom: 46, Swisscom: 48 },
-      { name: "Tag 4", TechCom: 48, Swisscom: 57.8 },
-      { name: "Tag 5", TechCom: 53, Swisscom: 61.4 },
-      { name: "Tag 6", TechCom: 49, Swisscom: 54.3 },
-      { name: "Tag 7", TechCom: 46, Swisscom: 48.9 },
-      { name: "Tag 8", TechCom: 54, Swisscom: 68.4 },
-      { name: "Tag 9", TechCom: 63, Swisscom: 72.7 },
-      { name: "Tag 10", TechCom: 61, Swisscom: 79.9 }
-    ];
-    setPreisData(fixedPrices);
-  }, []); // Nur einmal beim Laden setzen
+  // Custom Tooltip für detaillierte Produktinformationen
+  const CustomTooltip = ({ active, payload }) => {
+    if (active && payload && payload.length) {
+      const data = payload[0].payload;
+      return (
+        <div className="custom-tooltip">
+          <p><strong>{data.name}</strong></p>
+          <p style={{ color: "#007bff" }}>🔹 {data.TechComProduct}: CHF {data.TechCom}</p>
+          <p style={{ color: "#dc3545" }}>🔸 {data.SwisscomProduct}: CHF {data.Swisscom}</p>
+        </div>
+      );
+    }
+    return null;
+  };
 
   return (
     <div>
@@ -45,11 +79,12 @@ function PreisvergleichPage() {
         <div className="preisvergleich-box">
           <h1>💰 Sparen mit TechCom – Der beste Preis in der Schweiz! 🚀</h1>
           <p>
-            Warum mehr bezahlen? TechCom bietet Ihnen die gleiche Leistung wie grosse Anbieter – aber günstiger!
-            Unsere Preise sind dauerhaft fair und transparent. Sehen Sie selbst, wie TechCom im Vergleich zur Konkurrenz abschneidet.  
+            Warum mehr bezahlen? Bei TechCom erhalten Sie erstklassige Internetprodukte zu dauerhaft fairen Preisen – ohne versteckte Kosten.  
+            Wir beobachten den Markt kontinuierlich und reagieren flexibel, um Ihnen stets das beste Preis-Leistungs-Verhältnis zu bieten.  
+            Wenn ein Mitbewerber seine Preise ändert, passen wir uns schnell an, damit Sie immer von den günstigsten Tarifen profitieren.  
           </p>
           <p>
-          🔍 Nutzen Sie unseren interaktiven Preisvergleich und sparen Sie bares Geld!
+          🔍 <strong>Nutzen Sie unseren interaktiven Preisvergleich und sichern Sie sich Top-Geschwindigkeiten zum besten Preis!</strong>
           </p>
         </div>
       </section>
@@ -57,14 +92,25 @@ function PreisvergleichPage() {
       {/* 🔹 Diagramm für Preisentwicklung */}
       <section className="pricing-chart">
         <h2>📊 Preisentwicklung von TechCom & Swisscom</h2>
-        <p>Vergleichen Sie die Preisentwicklung der letzten Tage.</p>
+        <p>Vergleichen Sie die Preisentwicklung der letzten Monate.</p>
 
         <ResponsiveContainer width="95%" height={350}>
           <LineChart data={preisData}>
             <CartesianGrid strokeDasharray="3 3" />
             <XAxis dataKey="name" />
-            <YAxis domain={[35, 85]} />
-            <Tooltip />
+            <YAxis 
+              domain={[35, 90]} 
+              tick={{ fill: "#333", fontSize: 14 }} /* Bessere Lesbarkeit */
+              label={{ 
+                value: "CHF", 
+                angle: -90, 
+                position: "insideLeft", 
+                dy: -10, /* Vertikale Feinjustierung */
+                dx: -30, /* Horizontale Feinjustierung */
+                style: { fontSize: 16, fontWeight: "bold", fill: "#333" } 
+              }} 
+            /> 
+            <Tooltip content={<CustomTooltip />} />
             <Legend />
             <Line type="monotone" dataKey="TechCom" stroke="#007bff" strokeWidth={3} dot={{ r: 5 }} />
             <Line type="monotone" dataKey="Swisscom" stroke="#dc3545" strokeWidth={3} dot={{ r: 5 }} />
