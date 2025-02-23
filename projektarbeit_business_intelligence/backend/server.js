@@ -1,7 +1,6 @@
 require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
-const axios = require("axios");
 const { Server } = require("socket.io");
 const http = require("http");
 
@@ -12,37 +11,42 @@ app.use(express.json());
 const server = http.createServer(app);
 const io = new Server(server, { cors: { origin: "*" } });
 
-// 📌 Test-Route
-app.get("/", (req, res) => {
-    res.send("🚀 Backend läuft erfolgreich!");
-});
+// 📌 Funktion zur Generierung fixer Preisverläufe über 10 Tage
+function generateFixedPriceHistory() {
+    let priceHistory = [];
+    let basePrices = { TechCom: 50.00, Swisscom: 65.00 };
 
-// 📌 Swisscom Preise simuliert abrufen
-app.get("/api/swisscom-prices", async (req, res) => {
-    try {
-        const swisscomData = [
-            { name: "Swisscom Internet S", speed: "50 Mbit/s", price: "49.90 CHF" },
-            { name: "Swisscom Internet M", speed: "1 Gbit/s", price: "79.90 CHF" },
-            { name: "Swisscom Internet L", speed: "10 Gbit/s", price: "99.90 CHF" }
-        ];
-        res.json(swisscomData);
-    } catch (error) {
-        res.status(500).json({ error: "Fehler beim Abrufen der Swisscom-Daten" });
+    for (let i = 0; i < 10; i++) {
+        let day = new Date();
+        day.setDate(day.getDate() - (9 - i));
+
+        let TechCom = Math.min(Math.max(basePrices.TechCom + (Math.random() * 30 - 15), 35), 85);
+        let Swisscom = Math.min(Math.max(basePrices.Swisscom + (Math.random() * 30 - 15), 35), 85);
+
+        // Erhöhte Wahrscheinlichkeit, dass sich Preise überschneiden
+        if (Math.random() < 0.25) {
+            [TechCom, Swisscom] = [Swisscom, TechCom];
+        }
+
+        priceHistory.push({
+            date: day.toISOString().split("T")[0],
+            prices: { TechCom: parseFloat(TechCom.toFixed(2)), Swisscom: parseFloat(Swisscom.toFixed(2)) }
+        });
     }
+    return priceHistory;
+}
+
+let priceData = generateFixedPriceHistory(); // Preise bleiben fix nach Generierung
+
+// 📌 API-Route für die letzten 10 Tage
+app.get("/api/price-history", (req, res) => {
+    res.json(priceData);
 });
 
-// 📌 WebSocket für Echtzeit-Preise
+// 📌 WebSocket für Echtzeit-Preise (aber nur initiale Daten senden, keine Updates)
 io.on("connection", (socket) => {
     console.log("⚡ Ein Client ist verbunden");
-
-    setInterval(async () => {
-        const prices = [
-            { name: "TechCom Internet S", price: "39.90 CHF" },
-            { name: "TechCom Internet M", price: "49.90 CHF" },
-            { name: "TechCom Internet L", price: "59.90 CHF" }
-        ];
-        socket.emit("priceUpdate", prices);
-    }, 10000);
+    socket.emit("priceUpdate", priceData); // Nur beim Verbindungsaufbau senden
 });
 
 // 📌 Server starten

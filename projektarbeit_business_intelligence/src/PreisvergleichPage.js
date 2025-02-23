@@ -1,16 +1,27 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from "recharts";
 import "./styles.css";
 
 function PreisvergleichPage() {
-  const preisData = [
-    { name: "Tag 1", TechCom: 42, Swisscom: 55 },
-    { name: "Tag 2", TechCom: 43, Swisscom: 54 },
-    { name: "Tag 3", TechCom: 41, Swisscom: 53 },
-    { name: "Tag 4", TechCom: 44, Swisscom: 54 },
-    { name: "Tag 5", TechCom: 45, Swisscom: 55 },
-  ];
+  const [preisData, setPreisData] = useState([]);
+
+  useEffect(() => {
+    // 📌 Preiswerte aus der Excel-Tabelle statisch setzen
+    const fixedPrices = [
+      { name: "Tag 1", TechCom: 47.2, Swisscom: 45.5 },
+      { name: "Tag 2", TechCom: 54, Swisscom: 52 },
+      { name: "Tag 3", TechCom: 46, Swisscom: 48 },
+      { name: "Tag 4", TechCom: 48, Swisscom: 57.8 },
+      { name: "Tag 5", TechCom: 53, Swisscom: 61.4 },
+      { name: "Tag 6", TechCom: 49, Swisscom: 54.3 },
+      { name: "Tag 7", TechCom: 46, Swisscom: 48.9 },
+      { name: "Tag 8", TechCom: 54, Swisscom: 68.4 },
+      { name: "Tag 9", TechCom: 63, Swisscom: 72.7 },
+      { name: "Tag 10", TechCom: 61, Swisscom: 79.9 }
+    ];
+    setPreisData(fixedPrices);
+  }, []); // Nur einmal beim Laden setzen
 
   return (
     <div>
@@ -52,7 +63,7 @@ function PreisvergleichPage() {
           <LineChart data={preisData}>
             <CartesianGrid strokeDasharray="3 3" />
             <XAxis dataKey="name" />
-            <YAxis domain={[35, 60]} />
+            <YAxis domain={[35, 85]} />
             <Tooltip />
             <Legend />
             <Line type="monotone" dataKey="TechCom" stroke="#007bff" strokeWidth={3} dot={{ r: 5 }} />
