@@ -11,6 +11,29 @@ function InternetPage() {
     setOpenQuestion(openQuestion === index ? null : index);
   };
 
+  const faqs = [
+    {
+      question: "Welche Internet-Abos bietet TechCom?",
+      answer: "TechCom bietet flexible Internet-Abos mit Geschwindigkeiten von 100 Mbit/s bis 10 Gbit/s – perfekt für Streaming, Gaming und Homeoffice."
+    },
+    {
+      question: "Welche Internetgeschwindigkeit benötige ich?",
+      answer: "Für einfaches Surfen reichen 100 Mbit/s. Für Streaming und Homeoffice empfehlen wir 1 Gbit/s, und für High-End-Gaming oder grosse Haushalte sind 10 Gbit/s ideal."
+    },
+    {
+      question: "Welche Vorteile bieten Internet-Abos von TechCom?",
+      answer: "Unsere Abos bieten ultraschnelles Glasfaser-Internet, gratis WLAN-Router, integrierten Surf-Schutz und flexible Tarife ohne versteckte Kosten."
+    },
+    {
+      question: "Wie kann ich mein Internet-Abo zu TechCom wechseln?",
+      answer: "Einfach online das gewünschte Abo auswählen und Verfügbarkeit prüfen. Unser Team kümmert sich um den nahtlosen Wechsel von Ihrem aktuellen Anbieter."
+    },
+    {
+      question: "Welche kostenlosen Zusatzleistungen bieten Internet-Abos von TechCom?",
+      answer: "Unsere Abos beinhalten einen Gratis-WLAN-Router, Kinderschutz, Firewall, sowie Zugang zu unseren exklusiven WLAN-Hotspots in der ganzen Schweiz."
+    }
+  ];
+
   const internetProducts = [
     {
       title: "🏠 TechCom Connect S",
@@ -51,7 +74,7 @@ function InternetPage() {
             <li><Link to="/internet">Internet</Link></li>
             <li><Link to="/tv">TV</Link></li>
             <li><Link to="/support">Support</Link></li>
-            <li><Link to="/preisvergleich">Preisvergleich</Link></li> {/* ✅ Jetzt mit "Preisvergleich" */}
+            <li><Link to="/preisvergleich">Preisvergleich</Link></li>
             <li><Link to="/about">Über uns</Link></li> 
             <li><Link to="/login">Anmelden</Link></li>
           </ul>
@@ -74,8 +97,6 @@ function InternetPage() {
         <section className="offer-banner">
           <h2>Entscheiden Sie sich für das Angebot Ihrer Wahl</h2>
           <div className="internet-offer-container">
-            
-            {/* Angebot 1: PS5 Slim Geschenk */}
             <div className="internet-offer-box">
               <img src={ps5Image} alt="PS5 Angebot" className="internet-offer-image" />
               <div className="internet-offer-content">
@@ -86,7 +107,6 @@ function InternetPage() {
               </div>
             </div>
 
-            {/* Angebot 2: Internet + TV Special */}
             <div className="internet-offer-box">
               <img src={internetTvImage} alt="Internet + TV Angebot" className="internet-offer-image" />
               <div className="internet-offer-content">
@@ -99,30 +119,20 @@ function InternetPage() {
           </div>
         </section>
 
-        {/* 🔹 Produktübersicht */}
-        <section className="internet-products">
-          {internetProducts.map((product, index) => (
-            <div className="internet-card" key={index}>
-              <h3 className="internet-title">{product.title}</h3>
-              <div className="internet-info">
-                <p><strong>Internet-Geschwindigkeit</strong></p>
-                <p>{product.speed}</p>
-
-                <p><strong>WLAN-Router</strong></p>
-                <p>{product.router}</p>
-
-                <p><strong>Sicherheit</strong></p>
-                <p>{product.security}</p>
-
-                <p><strong>Zusatzleistungen</strong></p>
-                <p>{product.extras.join(", ")}</p>
+        {/* 🔹 Häufige Fragen Sektion */}
+        <section className="faq-section">
+          <h2>❓ Häufige Fragen</h2>
+          <div className="faq-container">
+            {faqs.map((faq, index) => (
+              <div key={index} className="faq-item">
+                <button className="faq-question" onClick={() => toggleQuestion(index)}>
+                  {faq.question}
+                  <span className="faq-icon">{openQuestion === index ? "▲" : "▼"}</span>
+                </button>
+                {openQuestion === index && <p className="faq-answer">{faq.answer}</p>}
               </div>
-              <p className="price">
-                <del>{product.oldPrice}</del> <strong>{product.price}</strong>
-              </p>
-              <button className="subscribe-btn">Abo wählen</button>
-            </div>
-          ))}
+            ))}
+          </div>
         </section>
       </main>
 

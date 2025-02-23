@@ -117,13 +117,22 @@ function LandingPage() {
       </main>
 
       {showPopup && (
-        <div className={`support-popup ${isMinimized ? "minimized" : ""}`}>
+        <div 
+          className={`support-popup ${isMinimized ? "minimized" : ""}`} 
+          onClick={() => isMinimized && setIsMinimized(false)}
+        >
           <div className="popup-header">
-            <h3>Support Fee</h3>
-            <button onClick={() => setIsMinimized(!isMinimized)} className="minimize-btn">
-              {isMinimized ? "🔼" : "🔽"}
+            {!isMinimized && <h3>Support Fee</h3>}
+            <button 
+              onClick={(e) => { 
+                e.stopPropagation(); 
+                setIsMinimized(!isMinimized); 
+              }} 
+              className="minimize-btn"
+            >
+              {isMinimized ? "" : "🔽"}
             </button>
-            <button onClick={() => setShowPopup(false)} className="close-btn">✖</button>
+            {!isMinimized && <button onClick={() => setShowPopup(false)} className="close-btn">✖</button>}
           </div>
 
           {!isMinimized && (
@@ -157,6 +166,8 @@ function LandingPage() {
               </div>
             </>
           )}
+
+          {isMinimized && <span>💬 Support</span>}
         </div>
       )}
     </div>
