@@ -40,7 +40,7 @@ function SupportPage() {
             ⚙️ Produkt einrichten
           </button>
           <button className="support-btn" onClick={() => handleClick("stoerung")}>
-            📞 Störungen & Defekte
+            📞 Störungen & Reparaturen
           </button>
           <button className="support-btn" onClick={() => handleClick("rechnung")}>
             💰 Rechnungen & Bezahlen
