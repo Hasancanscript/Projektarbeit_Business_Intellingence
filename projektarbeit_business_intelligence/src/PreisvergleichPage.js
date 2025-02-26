@@ -101,12 +101,13 @@ function PreisvergleichPage() {
             <YAxis 
               domain={[35, 90]} 
               tick={{ fill: "#333", fontSize: 14 }} /* Bessere Lesbarkeit */
+              tickFormatter={(value) => `CHF ${value}`} // Zeigt CHF bei den Werten an
               label={{ 
                 value: "CHF", 
                 angle: -90, 
                 position: "insideLeft", 
-                dy: -10, /* Vertikale Feinjustierung */
-                dx: -30, /* Horizontale Feinjustierung */
+                dy: -10, 
+                dx: -30, 
                 style: { fontSize: 16, fontWeight: "bold", fill: "#333" } 
               }} 
             /> 
