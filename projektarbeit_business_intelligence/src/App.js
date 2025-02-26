@@ -10,7 +10,8 @@ import SupportPage from "./SupportPage";
 import LoginPage from "./LoginPage";
 import AboutPage from "./AboutPage";
 import PreisvergleichPage from "./PreisvergleichPage";
-import StreamingPartners from "./StreamingPartners"; 
+import StreamingPartners from "./StreamingPartners";
+import AboutTechCom from "./AboutTechCom"; // NEU HINZUGEFÜGT!
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
         <Route path="/about" element={<AboutPage />} />
         <Route path="/preisvergleich" element={<PreisvergleichPage />} />
         <Route path="/streaming" element={<StreamingPartners />} />
+        <Route path="/about-techcom" element={<AboutTechCom />} /> {/* NEUE ROUTE */}
       </Routes>
     </Router>
   );

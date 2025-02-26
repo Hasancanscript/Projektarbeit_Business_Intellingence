@@ -1460,3 +1460,95 @@ footer {
   line-height: 1.5;
 }
 /* FAQ-Bereich Ende */
+
+/* 🔹 Container für "Unsere Werte" mit Farbverlauf */
+.techcom-values {
+  background: linear-gradient(to right, #0072ff, #9333ea); /* Blau-Lila Verlauf */
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  color: white;
+  text-align: center;
+  margin-top: 30px;
+}
+
+/* 🔹 Werte-Grid */
+.techcom-values-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+/* 🔹 Werte-Karten */
+.techcom-value-item {
+  background: rgba(255, 255, 255, 0.15); /* Halbtransparenter Hintergrund */
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  color: white;
+}
+
+/* 🔹 Volle Breite für das letzte Element */
+.techcom-full-width {
+  grid-column: span 2;
+}
+
+/* 🔹 Abstand zum Navbar hinzufügen */
+.techcom-container {
+  margin-top: 150px; /* Abstand zur Navbar */
+}
+
+/* 🔹 Keyframes für starke Animation mit Abstand */
+@keyframes strongHoverEffect {
+  0% {
+    transform: scale(1) translateY(20px);
+    opacity: 0;
+    margin-bottom: 10px;
+  }
+  50% {
+    transform: scale(1.1) translateY(-5px);
+    opacity: 1;
+    margin-bottom: 40px; /* Höherer Abstand beim Skalieren */
+  }
+  100% {
+    transform: scale(1.05) translateY(0);
+    opacity: 1;
+    margin-bottom: 40px; /* Endgültiger Abstand bleibt */
+  }
+}
+
+/* 🔹 Styling für die Werte-Karten */
+.techcom-value-item {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  color: white;
+  text-align: center;
+  font-size: 1.2em;
+  font-weight: bold;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  margin-bottom: 10px; /* Standard-Abstand */
+}
+
+/* 🔹 Abstand zwischen Boxen nach Animation */
+.techcom-value-item.animated {
+  margin-bottom: 50px !important; /* Nach der Animation bleibt der Abstand */
+}
+
+/* 🔹 Sequenzielle Animation */
+.techcom-value-item:nth-child(1) {
+  animation: strongHoverEffect 0.7s ease-out forwards;
+  animation-delay: 0.2s;
+}
+
+.techcom-value-item:nth-child(2) {
+  animation: strongHoverEffect 0.7s ease-out forwards;
+  animation-delay: 0.7s;
+}
+
+.techcom-value-item:nth-child(3) {
+  animation: strongHoverEffect 0.7s ease-out forwards;
+  animation-delay: 1.2s;
+}

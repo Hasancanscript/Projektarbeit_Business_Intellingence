@@ -30,6 +30,7 @@ function StreamingPartners() {
             <li><Link to="/support">Support</Link></li>
             <li><Link to="/preisvergleich">Preisvergleich</Link></li>
             <li><Link to="/about">Über uns</Link></li>
+            <li><Link to="/about-techcom">Über TechCom</Link></li>
             <li><Link to="/login">Anmelden</Link></li>
           </ul>
         </nav>

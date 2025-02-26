@@ -70,6 +70,7 @@ function LandingPage() {
             <li><NavLink to="/support">Support</NavLink></li>
             <li><NavLink to="/preisvergleich">Preisvergleich</NavLink></li>
             <li><NavLink to="/about">Über uns</NavLink></li>
+            <li><NavLink to="/about-techcom">Über TechCom</NavLink></li>
             <li><NavLink to="/login">Anmelden</NavLink></li>
           </ul>
         </nav>
