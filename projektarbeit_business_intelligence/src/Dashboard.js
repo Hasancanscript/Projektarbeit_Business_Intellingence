@@ -2,8 +2,8 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { FaHome, FaGift, FaFileInvoice, FaChartBar, FaWifi, FaTachometerAlt, FaTv, FaUsers, FaPowerOff, FaNetworkWired, FaLock } from "react-icons/fa";
 import "./styles.css";
-import skySportImage from "./images/sky-sport.png"; // Stelle sicher, dass das Bild existiert
-import tvConnectImage from "./images/tv-connect.png"; // Stelle sicher, dass das Bild existiert
+import skySportImage from "./images/sky-sport.png";
+import tvConnectImage from "./images/tv-connect.png";
 
 function Dashboard() {
   const [user, setUser] = useState({ name: "Hasan Balci" });
@@ -22,10 +22,12 @@ function Dashboard() {
       <div className="sidebar">
         <h2>TechCom</h2>
         <ul>
-          <li className="active"><FaHome /> Home</li>
-          <li><FaGift /> Benefits</li>
-          <li><FaFileInvoice /> Rechnungen</li>
-          <li><FaChartBar /> Aktivitäten</li>
+          <li className="active"><FaHome className="sidebar-icon" /> Home</li>
+          <li onClick={() => navigate("/benefits")} style={{ cursor: "pointer" }}>
+            <FaGift className="sidebar-icon" /> Benefits
+          </li>
+          <li><FaFileInvoice className="sidebar-icon" /> Rechnungen</li>
+          <li><FaChartBar className="sidebar-icon" /> Aktivitäten</li>
         </ul>
       </div>
 
@@ -40,6 +42,18 @@ function Dashboard() {
 
         {/* Grid Layout für Karten */}
         <div className="grid-container">
+          {/* Aktuelles (Großes Rechteck) */}
+          <div className="card aktuelles">
+            <h3>Aktuelles</h3>
+            <p>Jetzt mit <b>Sky Sport</b> und <b>TechCom TVL</b> das beste Unterhaltungspaket sichern!</p>
+            <div className="abo-bilder">
+              <img src={skySportImage} alt="Sky Sport" className="abo-bild" />
+              <img src={tvConnectImage} alt="TV Connect L" className="abo-bild" />
+            </div>
+            <button className="optimieren-btn">Jetzt Abo optimieren</button>
+          </div>
+
+          {/* Karten oben zusammenziehen */}
           <div className="card">
             <FaWifi className="icon" />
             <h3>Internet-Abo</h3>
@@ -90,17 +104,6 @@ function Dashboard() {
             <FaLock className="icon" />
             <h3>Internetsperre</h3>
             <button className="link-btn">Einstellungen</button>
-          </div>
-
-          {/* NEUER BEREICH: Optimieren Sie Ihr Abo */}
-          <div className="card optimieren-abo">
-            <h3>Optimieren Sie Ihr Abo</h3>
-            <div className="abo-bilder">
-              <img src={skySportImage} alt="Sky Sport" className="abo-bild" />
-              <img src={tvConnectImage} alt="TV Connect L" className="abo-bild" />
-            </div>
-            <p>Holen Sie sich jetzt das beste TV-Erlebnis mit Sky Sport und TV Connect L.</p>
-            <a href="#" className="link-btn">Jetzt Abo optimieren</a>
           </div>
         </div>
       </div>

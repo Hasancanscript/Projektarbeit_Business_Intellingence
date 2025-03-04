@@ -8,7 +8,8 @@ import InternetPage from "./InternetPage";
 import OfferPage from "./OfferPage";
 import SupportPage from "./SupportPage";
 import LoginPage from "./LoginPage";
-import Dashboard from "./Dashboard"; // ✅ NEU: Dashboard importiert
+import Dashboard from "./Dashboard"; // ✅ Dashboard importiert
+import Benefits from "./Benefits"; // ✅ Benefits importieren
 import AboutPage from "./AboutPage";
 import PreisvergleichPage from "./PreisvergleichPage";
 import StreamingPartners from "./StreamingPartners";
@@ -16,7 +17,6 @@ import AboutTechCom from "./AboutTechCom";
 
 function App() {
   useEffect(() => {
-    // Funktion für die dynamische Größenanpassung des Vierecks
     const handleScroll = () => {
       let banner = document.querySelector(".techcom-banner");
       if (banner) {
@@ -28,10 +28,8 @@ function App() {
       }
     };
 
-    // Event-Listener für das Scrollen hinzufügen
     window.addEventListener("scroll", handleScroll);
 
-    // Event-Listener entfernen, wenn die Komponente entladen wird
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
@@ -47,7 +45,8 @@ function App() {
         <Route path="/angebot" element={<OfferPage />} />
         <Route path="/support" element={<SupportPage />} />
         <Route path="/login" element={<LoginPage />} />
-        <Route path="/dashboard" element={<Dashboard />} /> {/* ✅ NEU: Dashboard-Route */}
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/benefits" element={<Benefits />} /> {/* ✅ NEU: Benefits-Route */}
         <Route path="/about" element={<AboutPage />} />
         <Route path="/preisvergleich" element={<PreisvergleichPage />} />
         <Route path="/streaming" element={<StreamingPartners />} />

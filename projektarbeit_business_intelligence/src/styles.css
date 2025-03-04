@@ -1677,11 +1677,12 @@ footer {
 }
 /* 🔹 Über TechCom Ende */
 
-/* Stile NUR für das Dashboard */
+/* Dashboard Container */
 .dashboard-container {
   display: flex;
   height: 100vh;
   background-color: #f5f5f5;
+  width: 100%;
 }
 
 /* Sidebar */
@@ -1692,25 +1693,23 @@ footer {
   padding: 20px;
   display: flex;
   flex-direction: column;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
 }
 
-.dashboard-container .sidebar h2 {
-  text-align: center;
-  margin-bottom: 20px;
-}
-
+/* Sidebar-Icons Abstand verbessern */
 .dashboard-container .sidebar ul {
   list-style: none;
   padding: 0;
 }
 
 .dashboard-container .sidebar li {
-  padding: 15px;
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
+  padding: 15px;
   cursor: pointer;
   border-radius: 5px;
+  font-size: 16px;
 }
 
 .dashboard-container .sidebar li.active,
@@ -1718,10 +1717,10 @@ footer {
   background: #002a80;
 }
 
-/* Dashboard Content */
+/* Hauptinhalt */
 .dashboard-container .dashboard-content {
   flex: 1;
-  padding: 20px;
+  padding: 30px;
 }
 
 /* Header */
@@ -1730,37 +1729,101 @@ footer {
   justify-content: space-between;
   align-items: center;
   background: white;
-  padding: 15px 20px;
-  border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  margin-bottom: 20px;
+  padding: 20px 25px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  margin-bottom: 25px;
+}
+
+/* Logout-Button */
+.dashboard-container .logout-btn {
+  background: #d9534f;
+  color: white;
+  border: none;
+  padding: 12px 18px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+.dashboard-container .logout-btn:hover {
+  background: #c9302c;
 }
 
 /* Grid Layout */
 .dashboard-container .grid-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 20px;
+  align-items: stretch; /* 🔥 Sorgt dafür, dass alle Kästchen die gleiche Höhe haben */
+  width: 100%;
 }
 
-/* Cards */
+/* Karten (🔥 ALLE KÄSTCHEN EXAKT GLEICH HOCH) */
 .dashboard-container .card {
   background: white;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
   text-align: center;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 200px;
+  min-height: 280px; /* 🔥 Jetzt exakt gleich wie "Aktuelles" */
+}
+
+/* 🔥 "Aktuelles"-Bereich (Leicht erhöht für perfekte Angleichung) */
+.dashboard-container .aktuelles {
+  grid-column: span 3;
+  height: 280px; /* 🔥 Leicht erhöht für perfekte Ausrichtung */
+  margin-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+}
+
+/* 🔥 Fix für Text */
+.dashboard-container .aktuelles h3 {
+  margin-bottom: 10px;
+}
+
+/* 🔥 Fix für Bilder & Button */
+.dashboard-container .abo-bilder {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+/* 🔥 Fix für den Button (Näher an die Bilder, nicht zu weit unten) */
+.dashboard-container .optimieren-btn {
+  background: #0047bb;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  margin-top: 5px;
+  align-self: center;
+  transition: background 0.3s;
+}
+
+.dashboard-container .optimieren-btn:hover {
+  background: #002a80;
 }
 
 /* Icons */
 .dashboard-container .card .icon {
   font-size: 40px;
   color: #0047bb;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
 }
 
 /* Einheitliche Buttons */
@@ -1768,35 +1831,119 @@ footer {
   background: #0047bb;
   color: white;
   border: none;
-  padding: 8px 12px;
-  border-radius: 5px;
+  padding: 10px 15px;
+  border-radius: 6px;
   cursor: pointer;
+  transition: background 0.3s;
 }
 
 .dashboard-container .link-btn:hover {
   background: #002a80;
 }
 
-/* Stile für "Optimieren Sie Ihr Abo" */
-.dashboard-container .optimieren-abo {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  height: 250px;
-}
-
-.dashboard-container .abo-bilder {
-  display: flex;
-  justify-content: center;
-  gap: 15px;
-  margin: 10px 0;
-}
-
+/* Bilder im "Aktuelles"-Bereich */
 .dashboard-container .abo-bild {
-  width: 80px;
-  height: 80px;
+  width: 85px;
+  height: 85px;
   border-radius: 50%;
   object-fit: cover;
   border: 3px solid #0047bb;
+}
+
+/* Responsive Anpassung */
+@media (max-width: 1200px) {
+  .dashboard-container .grid-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 992px) {
+  .dashboard-container .grid-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .dashboard-container .grid-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Benefits-Bereich */
+.benefits-container {
+  text-align: center;
+  padding: 30px;
+}
+
+.benefits-container h2 {
+  font-size: 28px;
+  color: #0047bb;
+  margin-bottom: 10px;
+}
+
+.benefits-container p {
+  font-size: 18px;
+  color: #555;
+  margin-bottom: 30px;
+}
+
+/* Grid-Layout für die Produkte */
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  justify-content: center;
+  padding: 0 20px;
+}
+
+/* Produktkarten */
+.benefit-card {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 320px;
+}
+
+/* Produktbilder */
+.product-image {
+  width: 100%;
+  max-height: 150px;
+  object-fit: contain;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+/* Preis */
+.price {
+  font-size: 18px;
+  font-weight: bold;
+  color: #d9534f;
+  margin-bottom: 15px;
+}
+
+/* Button */
+.benefit-card .link-btn {
+  background: #0047bb;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.benefit-card .link-btn:hover {
+  background: #002a80;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .grid-container {
+    grid-template-columns: 1fr;
+  }
 }
